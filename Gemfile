@@ -7,6 +7,9 @@ gem 'rails', '4.2.7'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails', '4.3.0.0'
 
+# Login
+gem 'devise', '~> 4.2.0'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
