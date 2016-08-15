@@ -1,18 +1,4 @@
 es:
-  activerecord:
-    attributes:
-      user:
-        name: Nombre
-        position: Cargo
-        current_password: Contraseña actual
-        email: Correo electrónico
-        password: Contraseña
-        password_confirmation: Confirmación de la contraseña
-        remember_me: Recordarme
-        reset_password_token: Restablecer token contraseña
-        unlock_token: Desbloquear token
-    models:
-      user: Usuario
   devise:
     confirmations:
       confirmed: Tu cuenta ha sido confirmada satisfactoriamente.
@@ -93,6 +79,10 @@ es:
       already_signed_out: Sesión finalizada.
       new:
         sign_in: Iniciar sesión
+        forgot_your_password: "¿Ha olvidado su contraseña?"
+        welcome_text: "PCM es una aplicación web, para la completa gestión del mantenimiento preventivo y correctivo de equipos dentro de una planta industrial."
+        welcome_text2: "Iniciar sesión. Para verlo en acción."
+        welcome: "Bienvenido a PCM Software"
       signed_in: Sesión iniciada.
       signed_out: Sesión finalizada.
     shared:

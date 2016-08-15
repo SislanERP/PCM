@@ -1,0 +1,43 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div>
+
+      <h1 class="logo-name">PCM</h1>
+
+    </div>
+    <h3><%= t('.welcome') %></h3>
+    <p><%= t('.welcome_text') %></p>
+    <!-- <p><%= t('.welcome_text2') %></p> -->
+    <div class="notice">
+      <%= notice %>
+    </div>
+    <div class="alert">
+      <%= alert %>
+    </div>
+    <%= form_for(:user, url: session_path(:user), :html => {class: "m-t", role: "form"}) do |f| %>
+    <div class="form-group">
+      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: t(:email) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.password_field :password, class: "form-control", placeholder: t(:password), autocomplete: "off" %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+    <div class="checkbox">
+      <%= f.label :remember_me do %>
+        <%= f.check_box :remember_me %>
+        <%= t(:remember_me) %>
+      <% end %>
+    </div>
+    <% end -%>
+
+    <%= f.submit t('.sign_in'), class: "btn btn-primary block full-width m-b" %>
+    <a href="#"><small><%= t('.forgot_your_password') %></small></a>
+
+    <% end %>
+    <p class="m-t">
+      <small>Copyright Landes S. A. &copy; 2016-2017 - CPM Software</small>
+    </p>
+  </div>
+</div>
