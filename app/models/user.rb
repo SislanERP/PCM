@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :position
+  has_many :company_users, dependent: :destroy
+  has_many :companies, through: :company_users
 end
