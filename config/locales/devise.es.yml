@@ -96,6 +96,7 @@ es:
         sign_up: Registrarse
         sign_out: Cerrar sesión
         profile: Perfil
+        change_company: Cambiar empresa
     unlocks:
       new:
         resend_unlock_instructions: Reenviar instrucciones para desbloquear
