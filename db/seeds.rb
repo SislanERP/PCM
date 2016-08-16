@@ -7,11 +7,26 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.destroy_all
 Position.destroy_all
+Company.destroy_all
 
-p = Position.new(name: "Informatica")
-p.users.build(email: "alex@landes.cl", name: "Alex Pacheco", password: "123456")
-p.users.build(email: "victor@landes.cl", name: "Victor Soto", password: "123456")
-p.save!
-p = Position.new(name: "Jefe Mant. Planta")
-p.users.build(email: "msoto@landes.cl", name: "Marcelo Soto", password: "123456")
-p.save!
+informatica = Position.new(name: "Informatica")
+informatica.save!
+jefe_planta = Position.new(name: "Jefe Mant. Planta")
+jefe_planta.save!
+
+alex = User.new(email: "alex@landes.cl", name: "Alex Pacheco", password: "123456", position: informatica)
+victor = User.new(email: "victor@landes.cl", name: "Victor Soto", password: "123456", position: informatica)
+marcelo = User.new(email: "msoto@landes.cl", name: "Marcelo Soto", password: "123456", position: jefe_planta)
+
+
+landes = Company.new(rut: "92.387.000-8", company_name: "Soc. Pesquera Landes S.A.", fantasy_name: "Landes S.A.", address: "Av. Tajamar 183 of 702, Las Condes", email: "landes@landes.cl", url: "www.landes.cl")
+landes.users << alex
+landes.users << victor
+landes.users << marcelo
+landes.save!
+
+profish = Company.new(rut: "92.387.000-8", company_name: "Profish S.A.", fantasy_name: "Profish S.A.", address: "Av. Tajamar 183 of 702, Las Condes", email: "profish@landes.cl", url: "www.landes.cl")
+profish.users << alex
+profish.users << victor
+profish.users << marcelo
+profish.save!

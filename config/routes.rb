@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+
+  root 'home#companies'
+  
+  get 'home/companies'
+
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-  get "home/index"
-  get "home/minor"
-  # You can have the root of your site routed with "root"
-  root 'home#index'
+
+  resources :companies, only: [:index] do
+      member do
+        get 'home/index'
+        get 'home/minor'
+      end
+  end
+
+  resources :companies, except: [:index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
