@@ -1,0 +1,18 @@
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= link_to company.try(:fantasy_name) ,
+                  home_index_company_path(company),
+                  class: "btn btn-block btn-outline btn-primary",
+                  rol: "button"
+                  %>
+    </div>
+    <div class="panel-body">
+      <p><%= company.try(:company_name) %></p>
+      <p><%= company.try(:rut) %></p>
+      <p><%= company.try(:address) %></p>
+      <p><%= company.try(:mail) %></p>
+      <p><%= company.try(:url) %></p>
+    </div>
+  </div>
+</div>
