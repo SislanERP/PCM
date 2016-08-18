@@ -1,10 +1,14 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @companies = Company.filter_by_user(current_user)
+    # @companies = Company.joins(:company_users).where("company_users.users": current_user).order(:id)
+
+    render :layout => "empty"
   end
 
   # GET /companies/1

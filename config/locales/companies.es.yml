@@ -1,0 +1,5 @@
+es:
+  companies:
+    index:
+      select_company: Seleccionar una empresa
+      select_company_text: Si la empresa que necesita no esta en el listado comuniquese con su administrador.
