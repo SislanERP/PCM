@@ -8,14 +8,13 @@ Rails.application.routes.draw do
         sessions: 'users/sessions'
       }
 
-  resources :companies, only: [:show] do
+  resources :companies do
       member do
         get 'home/index'
         get 'home/minor'
       end
   end
 
-  resources :companies, except: [:show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
