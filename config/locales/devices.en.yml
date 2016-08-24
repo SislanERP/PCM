@@ -1,0 +1,14 @@
+en:
+  devices:
+    index:
+      devices: Equipments
+      branch_name: Branch
+      plant_name: Plant
+      system_name: System
+      provider_name: Provider
+      serial_number: Code
+      name: Name
+      brand_model: Brand - Model
+      admission_date: Admission date
+      state: State
+      title: Equipment of 

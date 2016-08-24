@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   belongs_to :position
   has_many :company_users, dependent: :destroy
   has_many :companies, through: :company_users
+  has_many :maintenances
 
   def position_by_company(company)
     company_users.find_by(company: company).try(:position)

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  observation: MyText
+  accomplished: false
+  accomplished_date: 2016-08-21 01:50:53
+  maintenance_id: 
+  task_id: 
+
+two:
+  observation: MyText
+  accomplished: false
+  accomplished_date: 2016-08-21 01:50:53
+  maintenance_id: 
+  task_id: 

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lubrication: false
+  subject: MyString
+  description: MyText
+  frecuency: 1
+  device_type_id:
+
+two:
+  lubrication: false
+  subject: MyString
+  description: MyText
+  frecuency: 1
+  device_type_id:

@@ -1,0 +1,14 @@
+es:
+  devices:
+    index:
+      devices: Equipos
+      branch_name: Sucursal
+      plant_name: Planta
+      system_name: Sistema
+      provider_name: Proveedor
+      serial_number: Codigo
+      name: Nombre
+      brand_model: Marca - Modelo
+      admission_date: Fecha ingreso
+      state: Estado
+      title: Equipos de 
