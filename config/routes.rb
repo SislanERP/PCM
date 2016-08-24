@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'devices/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,10 +11,11 @@ Rails.application.routes.draw do
       }
 
   resources :companies do
-      member do
-        get 'home/index'
-        get 'home/minor'
-      end
+    resources :devices, only: [:index]
+    member do
+      get 'home/index'
+      get 'home/minor'
+    end
   end
 
 

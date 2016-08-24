@@ -5,7 +5,7 @@ class CreateMasterMaintenancePlans < ActiveRecord::Migration
       t.string :subject
       t.text :description
       t.integer :frecuency
-      t.references :equipment_type, index: true, foreign_key: true
+      t.references :device_type, index: true, foreign_key: true
 
       t.timestamps null: false
     end

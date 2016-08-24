@@ -3,11 +3,11 @@
 one:
   last_execution: 2016-08-21 00:40:23
   specification: MyText
-  equipment_id: 
-  master_maintenance_plan_id: 
+  device_id:
+  master_maintenance_plan_id:
 
 two:
   last_execution: 2016-08-21 00:40:23
   specification: MyText
-  equipment_id: 
-  master_maintenance_plan_id: 
+  device_id:
+  master_maintenance_plan_id:

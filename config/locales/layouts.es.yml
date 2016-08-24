@@ -1,4 +1,6 @@
 es:
   layouts:
     topnavbar:
-        search_something: Buscar algo...
+      search_something: Buscar algo...
+    navigation:
+      devices: Equipos

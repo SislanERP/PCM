@@ -5,11 +5,11 @@ one:
   subject: MyString
   description: MyText
   frecuency: 1
-  equipment_type_id: 
+  device_type_id:
 
 two:
   lubrication: false
   subject: MyString
   description: MyText
   frecuency: 1
-  equipment_type_id: 
+  device_type_id:

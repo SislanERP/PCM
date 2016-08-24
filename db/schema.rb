@@ -50,61 +50,64 @@ ActiveRecord::Schema.define(version: 20160821050530) do
   add_index "company_users", ["role_id"], name: "index_company_users_on_role_id", using: :btree
   add_index "company_users", ["user_id"], name: "index_company_users_on_user_id", using: :btree
 
-  create_table "equipment", force: :cascade do |t|
-    t.string   "serial_number"
-    t.string   "name"
-    t.datetime "admission_date"
-    t.text     "description"
-    t.string   "potency"
-    t.string   "production_capacity"
-    t.string   "intake"
-    t.boolean  "electrical_commutador"
-    t.boolean  "electrical_inverter"
-    t.integer  "provider_id"
-    t.integer  "equipment_type_id"
-    t.integer  "system_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "equipment_id"
-    t.integer  "electrical_control"
-    t.integer  "electrical_start"
-  end
-
-  add_index "equipment", ["equipment_id"], name: "index_equipment_on_equipment_id", using: :btree
-  add_index "equipment", ["equipment_type_id"], name: "index_equipment_on_equipment_type_id", using: :btree
-  add_index "equipment", ["provider_id"], name: "index_equipment_on_provider_id", using: :btree
-  add_index "equipment", ["system_id"], name: "index_equipment_on_system_id", using: :btree
-
-  create_table "equipment_states", force: :cascade do |t|
+  create_table "device_states", force: :cascade do |t|
     t.integer  "state"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "equipment_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "device_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "equipment_states", ["equipment_id"], name: "index_equipment_states_on_equipment_id", using: :btree
+  add_index "device_states", ["device_id"], name: "index_device_states_on_device_id", using: :btree
 
-  create_table "equipment_supplies", force: :cascade do |t|
+  create_table "device_supplies", force: :cascade do |t|
     t.float    "cuantity"
     t.integer  "supply_id"
-    t.integer  "equipment_id"
+    t.integer  "device_id"
     t.integer  "instrument_type_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
-  add_index "equipment_supplies", ["equipment_id"], name: "index_equipment_supplies_on_equipment_id", using: :btree
-  add_index "equipment_supplies", ["instrument_type_id"], name: "index_equipment_supplies_on_instrument_type_id", using: :btree
-  add_index "equipment_supplies", ["supply_id"], name: "index_equipment_supplies_on_supply_id", using: :btree
+  add_index "device_supplies", ["device_id"], name: "index_device_supplies_on_device_id", using: :btree
+  add_index "device_supplies", ["instrument_type_id"], name: "index_device_supplies_on_instrument_type_id", using: :btree
+  add_index "device_supplies", ["supply_id"], name: "index_device_supplies_on_supply_id", using: :btree
 
-  create_table "equipment_types", force: :cascade do |t|
+  create_table "device_types", force: :cascade do |t|
+    t.string   "name"
     t.string   "brand_model"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "devices", force: :cascade do |t|
+    t.string   "serial_number"
+    t.string   "name"
+    t.string   "brand_model"
+    t.datetime "admission_date"
+    t.text     "description"
+    t.text     "observation"
+    t.string   "potency"
+    t.string   "production_capacity"
+    t.string   "intake"
+    t.integer  "electrical_start"
+    t.integer  "electrical_control"
+    t.boolean  "electrical_commutador"
+    t.boolean  "electrical_inverter"
+    t.integer  "provider_id"
+    t.integer  "device_type_id"
+    t.integer  "system_id"
+    t.integer  "device_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "devices", ["device_id"], name: "index_devices_on_device_id", using: :btree
+  add_index "devices", ["device_type_id"], name: "index_devices_on_device_type_id", using: :btree
+  add_index "devices", ["provider_id"], name: "index_devices_on_provider_id", using: :btree
+  add_index "devices", ["system_id"], name: "index_devices_on_system_id", using: :btree
 
   create_table "failure_types", force: :cascade do |t|
     t.string   "name"
@@ -116,12 +119,12 @@ ActiveRecord::Schema.define(version: 20160821050530) do
     t.text     "description"
     t.datetime "date"
     t.integer  "failure_type_id"
-    t.integer  "equipment_id"
+    t.integer  "device_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
-  add_index "failures", ["equipment_id"], name: "index_failures_on_equipment_id", using: :btree
+  add_index "failures", ["device_id"], name: "index_failures_on_device_id", using: :btree
   add_index "failures", ["failure_type_id"], name: "index_failures_on_failure_type_id", using: :btree
 
   create_table "instrument_types", force: :cascade do |t|
@@ -139,14 +142,15 @@ ActiveRecord::Schema.define(version: 20160821050530) do
 
   create_table "maintenance_plans", force: :cascade do |t|
     t.datetime "last_execution"
+    t.integer  "frecuency"
     t.text     "specification"
-    t.integer  "equipment_id"
+    t.integer  "device_id"
     t.integer  "master_maintenance_plan_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "maintenance_plans", ["equipment_id"], name: "index_maintenance_plans_on_equipment_id", using: :btree
+  add_index "maintenance_plans", ["device_id"], name: "index_maintenance_plans_on_device_id", using: :btree
   add_index "maintenance_plans", ["master_maintenance_plan_id"], name: "index_maintenance_plans_on_master_maintenance_plan_id", using: :btree
 
   create_table "maintenance_supplies", force: :cascade do |t|
@@ -177,15 +181,15 @@ ActiveRecord::Schema.define(version: 20160821050530) do
     t.integer  "type_provider"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "start_equipment_state"
-    t.integer  "end_equipment_state"
+    t.integer  "start_device_state"
+    t.integer  "end_device_state"
     t.text     "observation"
     t.integer  "user_id"
     t.integer  "failure_id"
     t.integer  "provider_id"
     t.integer  "maintenance_plan_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   add_index "maintenances", ["failure_id"], name: "index_maintenances_on_failure_id", using: :btree
@@ -198,12 +202,12 @@ ActiveRecord::Schema.define(version: 20160821050530) do
     t.string   "subject"
     t.text     "description"
     t.integer  "frecuency"
-    t.integer  "equipment_type_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "device_type_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  add_index "master_maintenance_plans", ["equipment_type_id"], name: "index_master_maintenance_plans_on_equipment_type_id", using: :btree
+  add_index "master_maintenance_plans", ["device_type_id"], name: "index_master_maintenance_plans_on_device_type_id", using: :btree
 
   create_table "plants", force: :cascade do |t|
     t.string   "name"
@@ -216,9 +220,9 @@ ActiveRecord::Schema.define(version: 20160821050530) do
 
   create_table "providers", force: :cascade do |t|
     t.string   "rut"
-    t.string   "campany_name"
+    t.string   "company_name"
     t.string   "address"
-    t.string   "cantact_name"
+    t.string   "contact_name"
     t.string   "contact_phone"
     t.string   "contact_email"
     t.string   "contact_position"
@@ -298,17 +302,17 @@ ActiveRecord::Schema.define(version: 20160821050530) do
   add_foreign_key "company_users", "companies"
   add_foreign_key "company_users", "roles"
   add_foreign_key "company_users", "users"
-  add_foreign_key "equipment", "equipment"
-  add_foreign_key "equipment", "equipment_types"
-  add_foreign_key "equipment", "providers"
-  add_foreign_key "equipment", "systems"
-  add_foreign_key "equipment_states", "equipment"
-  add_foreign_key "equipment_supplies", "equipment"
-  add_foreign_key "equipment_supplies", "instrument_types"
-  add_foreign_key "equipment_supplies", "supplies"
-  add_foreign_key "failures", "equipment"
+  add_foreign_key "device_states", "devices"
+  add_foreign_key "device_supplies", "devices"
+  add_foreign_key "device_supplies", "instrument_types"
+  add_foreign_key "device_supplies", "supplies"
+  add_foreign_key "devices", "device_types"
+  add_foreign_key "devices", "devices"
+  add_foreign_key "devices", "providers"
+  add_foreign_key "devices", "systems"
+  add_foreign_key "failures", "devices"
   add_foreign_key "failures", "failure_types"
-  add_foreign_key "maintenance_plans", "equipment"
+  add_foreign_key "maintenance_plans", "devices"
   add_foreign_key "maintenance_plans", "master_maintenance_plans"
   add_foreign_key "maintenance_supplies", "maintenances"
   add_foreign_key "maintenance_supplies", "supplies"
@@ -318,7 +322,7 @@ ActiveRecord::Schema.define(version: 20160821050530) do
   add_foreign_key "maintenances", "maintenance_plans"
   add_foreign_key "maintenances", "providers"
   add_foreign_key "maintenances", "users"
-  add_foreign_key "master_maintenance_plans", "equipment_types"
+  add_foreign_key "master_maintenance_plans", "device_types"
   add_foreign_key "plants", "branches"
   add_foreign_key "supplies", "items"
   add_foreign_key "systems", "plants"

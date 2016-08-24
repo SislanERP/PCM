@@ -1,3 +1,3 @@
 class InstrumentType < ActiveRecord::Base
-  has_many :equipment_supplies
+  has_many :device_supplies
 end

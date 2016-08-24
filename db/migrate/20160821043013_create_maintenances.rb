@@ -4,8 +4,8 @@ class CreateMaintenances < ActiveRecord::Migration
       t.integer :type_provider
       t.datetime :start_date
       t.datetime :end_date
-      t.integer :start_equipment_state
-      t.integer :end_equipment_state
+      t.integer :start_device_state
+      t.integer :end_device_state
       t.text :observation
       t.references :user, index: true, foreign_key: true
       t.references :failure, index: true, foreign_key: true

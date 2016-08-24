@@ -4,7 +4,7 @@ class CreateFailures < ActiveRecord::Migration
       t.text :description
       t.datetime :date
       t.references :failure_type, index: true, foreign_key: true
-      t.references :equipment, index: true, foreign_key: true
+      t.references :device, index: true, foreign_key: true
 
       t.timestamps null: false
     end

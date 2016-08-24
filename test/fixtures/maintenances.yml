@@ -4,22 +4,22 @@ one:
   type_provider: 1
   start_date: 2016-08-21 01:30:13
   end_date: 2016-08-21 01:30:13
-  start_equipment_state: 1
-  end_equipment_state: 1
+  start_device_state: 1
+  end_device_state: 1
   observation: MyText
-  user_id: 
-  failure_id: 
-  provider_id: 
-  maintenance_plan_id: 
+  user_id:
+  failure_id:
+  provider_id:
+  maintenance_plan_id:
 
 two:
   type_provider: 1
   start_date: 2016-08-21 01:30:13
   end_date: 2016-08-21 01:30:13
-  start_equipment_state: 1
-  end_equipment_state: 1
+  start_device_state: 1
+  end_device_state: 1
   observation: MyText
-  user_id: 
-  failure_id: 
-  provider_id: 
-  maintenance_plan_id: 
+  user_id:
+  failure_id:
+  provider_id:
+  maintenance_plan_id:

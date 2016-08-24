@@ -3,11 +3,11 @@
 one:
   description: MyText
   date: 2016-08-21 00:08:38
-  failure_type_id: 
-  equipment_id: 
+  failure_type_id:
+  device_id:
 
 two:
   description: MyText
   date: 2016-08-21 00:08:38
-  failure_type_id: 
-  equipment_id: 
+  failure_type_id:
+  device_id:
