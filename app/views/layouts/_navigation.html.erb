@@ -31,16 +31,12 @@
           PCM
         </div>
       </li>
-      <li class="<%= 'active' if current_page?(home_index_company_path) %>">
-        <%= link_to home_index_company_path do %>
-        <i class="fa fa-laptop"></i> <span class="nav-label">Main page</span>
+      <li class="<%= 'active' if current_page?(company_devices_path) %>">
+        <%= link_to company_devices_path do %>
+        <i class="fa fa-wrench"></i> <span class="nav-label"><%= t('.devices') %></span>
         <% end %>
       </li>
-      <li class="<%= 'active' if current_page?(home_minor_company_path) %>">
-        <%= link_to home_minor_company_path do %>
-        <i class="fa fa-desktop"></i> <span class="nav-label">Minor page</span>
-        <% end %>
-      </li>
+
     </ul>
 
   </div>

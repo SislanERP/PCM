@@ -6,8 +6,6 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.filter_by_user(current_user)
-    # @companies = Company.joins(:company_users).where("company_users.users": current_user).order(:id)
-
     render :layout => "empty"
   end
 
@@ -67,9 +65,9 @@ class CompaniesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_company
-      @company = Company.find(params[:id])
-    end
+    # def set_company
+    #   @company = Company.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params

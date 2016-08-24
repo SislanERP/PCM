@@ -2,10 +2,10 @@ class HomeController < ApplicationController
   before_action :set_company, except: [:companies]
   before_action :authenticate_user!
 
-  def companies
-    @company_users = CompanyUser.where(user: current_user).order(:id)
-    render :layout => "empty"
-  end
+  # def companies
+  #   @company_users = CompanyUser.where(user: current_user).order(:id)
+  #   render :layout => "empty"
+  # end
 
   def index
     @mainTitle = "Welcome in PCM Software Project"
@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 
   private
 
-  def set_company
-    @company = Company.find(params[:id])
-  end
+  # def set_company
+  #   @company = Company.find(params[:id])
+  # end
 end

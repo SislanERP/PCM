@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  warehouse_code: MyString
+  part_number: MyString
+  price: 1.5
+  stock: 1.5
+  um: MyString
+  item_id: 
+
+two:
+  name: MyString
+  warehouse_code: MyString
+  part_number: MyString
+  price: 1.5
+  stock: 1.5
+  um: MyString
+  item_id: 
