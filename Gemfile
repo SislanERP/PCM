@@ -9,6 +9,7 @@ gem 'font-awesome-rails', '4.3.0.0'
 
 # Login
 gem 'devise', '~> 4.2.0'
+gem 'activeadmin', github: 'activeadmin'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'

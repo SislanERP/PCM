@@ -8,6 +8,7 @@ User.destroy_all
 Company.destroy_all
 Role.destroy_all
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 alex = User.new(email: "alex@landes.cl", name: "Alex Pacheco", password: "123456")
 victor = User.new(email: "victor@landes.cl", name: "Victor Soto", password: "123456")
