@@ -6,7 +6,7 @@
   <title>PCM Software</title>
 
   <!-- Include style per-controller - vendor plugins -->
-    <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
+  <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
 
   <!-- Main css styles -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -16,7 +16,7 @@
   <%= csrf_meta_tags %>
 
 </head>
-<body>
+<body class="skin-1">
 
   <!-- Wrapper-->
   <div id="wrapper">
@@ -43,7 +43,7 @@
 
   </div>
   <!-- End wrapper-->
-  
+
   <!-- Include javascript per-controller - vendor plugins -->
     <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>
 

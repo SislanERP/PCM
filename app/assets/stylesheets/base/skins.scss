@@ -29,8 +29,8 @@ $skin-1-page-bg: #f4f6fa;
 }
 
 .skin-1 .nav-header {
-  background: $skin-1-color;
-  background: url('patterns/header-profile-skin-1.png');
+  background-color: $skin-1-color;
+  background-image: url('patterns/header-profile-skin-1.png');
 }
 
 .skin-1.mini-navbar .nav-second-level {
@@ -98,7 +98,8 @@ body.skin-1 {
 }
 
 .skin-1 .nav > li.active {
-  border: none;
+  // border: none;
+  border-color: $skin-1-color;
 }
 
 .skin-1 .nav-header {
@@ -167,8 +168,8 @@ body.skin-2 {
 }
 
 .skin-2 .nav-header {
-  background: $skin-2-color;
-  background: url('patterns/header-profile-skin-2.png');
+  background-color: $skin-2-color;
+  background-image: url('patterns/header-profile-skin-2.png');
 }
 
 .skin-2.mini-navbar .nav-second-level {
@@ -360,8 +361,8 @@ body.boxed-layout.skin-3 #wrapper {
 }
 
 .skin-3 .nav-header {
-  background: $skin-3-color;
-  background: url('patterns/header-profile-skin-3.png');
+  background-color: $skin-3-color;
+  background-image: url('patterns/header-profile-skin-3.png');
 }
 
 .skin-3.mini-navbar .nav-second-level {
