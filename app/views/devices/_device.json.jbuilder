@@ -4,3 +4,4 @@ json.plant device.plant.name
 json.system device.system.name
 json.branch device.branch.name
 json.provider device.provider.company_name
+json.DT_RowId device.id
