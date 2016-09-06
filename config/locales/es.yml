@@ -1,4 +1,7 @@
 es:
+  devices: Equipos
+  devices_of: Equipos de
+  devices_details: Detalle de Equipos
   remember_me: Recordarme
   name: Nombre
   position: Cargo

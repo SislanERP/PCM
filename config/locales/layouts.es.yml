@@ -4,3 +4,6 @@ es:
       search_something: Buscar algo...
     navigation:
       devices: Equipos
+      list_of_devices: Lista de equipos
+      maintenances: Mantenciones
+      list_of_maintenances: Lista de mantenciones

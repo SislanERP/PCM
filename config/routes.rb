@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   }
 
   resources :companies, only: [:index] do
-    resources :devices, only: [:index]
+    resources :devices, only: [:index, :show]
   end
 
 
