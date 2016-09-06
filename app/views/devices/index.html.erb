@@ -1,12 +1,10 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2><%= t('.devices') %></h2>
+    <h2><%= t('devices') %></h2>
     <ol class="breadcrumb">
-      <li>
-        <a href="<%= url_for :controller => params[:controller], :action => params[:action] %>"> <%= params[:controller] %></a>
-      </li>
+      <%= render 'common/breadcrumb_home' %>
       <li class="active">
-        <strong><%= t('.devices') %></strong>
+        <strong><%= t('devices') %></strong>
       </li>
     </ol>
   </div>
@@ -80,7 +78,12 @@
         },
 
         "columns": [
-            { "data": "name" },
+            {
+              data: "link",
+              render: function(data, type, row){
+                return '<a href="'+data.url+'">'+data.name+'</a>';
+              }
+            },
             { "data": "branch" },
             { "data": "plant" },
             { "data": "system" },
@@ -100,18 +103,18 @@
 
           {extend: 'excel',
           text: "<i class='fa fa-file-excel-o'></i> Excel",
-          title: "<%= t('.title') + ' ' + @company.try(:company_name)%>"
+          title: "<%= t('devices_of') + ' ' + @company.try(:company_name)%>"
           },
 
           {extend: 'pdf',
           text: "<i class='fa fa-file-pdf-o'></i> PDF",
-          title: "<%= t('.title') + ' ' + @company.try(:company_name)%>",
+          title: "<%= t('devices_of') + ' ' + @company.try(:company_name)%>",
           orientation: 'landscape'
           },
 
           {extend: 'print',
           text: "<i class='fa fa-print'></i>",
-          title: "<%= t('.title') + ' ' + @company.try(:company_name)%>",
+          title: "<%= t('devices_of') + ' ' + @company.try(:company_name)%>",
           customize: function (win){
             $(win.document.body).addClass('white-bg');
             $(win.document.body).css('font-size', '10px');
@@ -127,7 +130,7 @@
   </script>
 <% end %>
 <style media="screen">
-  #table-devices td {
+  /*#table-devices td {
     cursor: pointer;
-  }
+  }*/
 </style>
