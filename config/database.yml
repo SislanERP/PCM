@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: pcm_production
-  username: pcm
+  username: ubuntu
   password: <%= ENV['PCM_DATABASE_PASSWORD'] %>
