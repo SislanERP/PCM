@@ -35,8 +35,9 @@
               <dl class="dl-horizontal">
                 <dt><%= t('father_device') %>:</dt>
                 <dd>
-                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, [@company, @device.device] %>
-                  <%= @device.device.name %>
+                  <strong>
+                    <%= link_to "#{@device.device.name}".html_safe, [@company, @device.device] %>
+                  </strong>
                 </dd>
               </dl>
             </div>
@@ -307,7 +308,7 @@
 
                     <hr>
                     <!-- Devices of this System -->
-                    <h4><%= "#{t('system_devices')}: #{@device.system.name}" %></h4> 
+                    <h4><%= "#{t('system_devices')}: #{@device.system.name}" %></h4>
                     <%= render(
                     partial: 'other_devices',
                     locals: { devices: @system_devices}

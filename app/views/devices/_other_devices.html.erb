@@ -2,8 +2,9 @@
   <ul class="todo-list m-t small-list">
     <% devices.each do |device| %>
       <li>
-        <%= link_to "<i class='fa fa-eye'></i>".html_safe, [@company, device] %>
-        <span class="m-l-xs"><%= device.name %></span>
+        <strong>
+          <%= link_to "<span class='m-l-xs'>#{device.name}</span>".html_safe, [@company, device] %>
+        </strong>
       </li>
     <% end %>
   </ul>
