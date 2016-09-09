@@ -81,7 +81,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: pcm_production
   username: ubuntu
-  password: <%= ENV['PCM_DATABASE_PASSWORD'] %>
+  password: <%= Rails.application.secrets[:database][:password] %>
+  pool: 5
+  # password: <%= ENV['PCM_DATABASE_PASSWORD'] %>

@@ -11,7 +11,8 @@ set :ssh_options             , { forward_agent: true, user: fetch(:user) , keys:
 set :rails_env               , :production
 
 ## Linked Files & Directories (Default None):
-set :linked_files, %w{config/secrets.yml .env}
+# set :linked_files, %w{config/secrets.yml .env}
+set :linked_files, %w{config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 set :puma_threads            , [4, 16]
