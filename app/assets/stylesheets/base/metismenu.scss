@@ -74,6 +74,11 @@
   transition-property: height, visibility
 }
 
+.mini-navbar {
+  .metismenu .collapse { opacity: 0; }
+  .metismenu .collapse.in { opacity: 1; }
+}
+
 
 
 

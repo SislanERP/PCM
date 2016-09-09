@@ -1,0 +1,17 @@
+<% unless devices.size == 0 %>
+  <ul class="todo-list m-t small-list">
+    <% devices.each do |device| %>
+      <li>
+        <strong>
+          <%= link_to "<span class='m-l-xs'>#{device.name}</span>".html_safe, [@company, device] %>
+        </strong>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <ul class="todo-list m-t small-list">
+    <li>
+      <span class="m-l-xs"><%= t('dont_have') %></span>
+    </li>
+  </ul>
+<% end %>

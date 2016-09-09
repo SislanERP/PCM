@@ -12,6 +12,7 @@
 !/log/.keep
 /tmp
 */.keep
+.byebug_history
 
 # Ignore Secret file.
 config/secrets.yml

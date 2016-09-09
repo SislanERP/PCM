@@ -1,0 +1,322 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4"> <!-- BreadCrumb -->
+    <h2><%= t('devices_details') %></h2>
+    <ol class="breadcrumb">
+      <%= render 'common/breadcrumb_home' %>
+      <%= render 'common/breadcrumb_device_index' %>
+      <li class="active">
+        <strong><%= t('devices_details') %></strong>
+      </li>
+    </ol>
+  </div>
+</div> <!-- END BreadCrumb -->
+<div class="row">
+  <div class="col-lg-9"> <!-- Side Rigth -->
+    <div class="wrapper wrapper-content animated fadeInUp">
+      <div class="ibox">
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="m-b-md">
+                <a href="#" class="btn btn-primary pull-right">
+                  <i class="fa fa-edit"></i> <%= t('devices_edit') %>
+                </a>
+                <h2><%= @device.name %></h2>
+              </div>
+              <dl class="dl-horizontal">
+                <dt><%= t('estatus') %>:</dt>
+                <dd><span class="label label-primary"><%= @device.state %></span></dd>
+              </dl>
+            </div>
+          </div>
+          <% unless @device.device == nil %>
+          <div class="row"> <!-- Father Device -->
+            <div class="col-lg-12">
+              <dl class="dl-horizontal">
+                <dt><%= t('father_device') %>:</dt>
+                <dd>
+                  <strong>
+                    <%= link_to "#{@device.device.name}".html_safe, [@company, @device.device] %>
+                  </strong>
+                </dd>
+              </dl>
+            </div>
+          </div> <!-- END Father Device -->
+          <% end %>
+          <div class="row">
+            <div class="ibox-title">
+              <h4><%= t('general_data') %></h4>
+            </div>
+            <div class="row">
+              <div class="col-lg-5">
+                <dl class="dl-horizontal">
+                  <dt><%= t('branch') %>:</dt>
+                  <dd><%= @device.branch.name %></dd>
+                  <dt><%= t('plant') %>:</dt>
+                  <dd><%= @device.plant.name %></dd>
+                </dl>
+              </div>
+              <div class="col-lg-5">
+                <dl class="dl-horizontal">
+                  <dt><%= t('system') %>:</dt>
+                  <dd><%= @device.system.name %></dd>
+                  <dt><%= t('device_type') %>:</dt>
+                  <dd><%= @device.device_type.name %></dd>
+                </dl>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-5">
+                <dl class="dl-horizontal">
+                  <dt><%= t('serial_number') %>:</dt>
+                  <dd><%= @device.serial_number %></dd>
+                  <dt><%= t('brand_model') %>:</dt>
+                  <dd><%= @device.brand_model %></dd>
+                  <dt><%= t('potency') %>:</dt>
+                  <dd><%= @device.potency %></dd>
+                  <dt><%= t('production_capacity') %>:</dt>
+                  <dd><%= @device.production_capacity %></dd>
+                  <dt><%= t('intake') %>:</dt>
+                  <dd><%= @device.intake %></dd>
+                </dl>
+              </div>
+              <div class="col-lg-7" id="cluster_info">
+                <dl class="dl-horizontal">
+                  <dt><%= t('admission_date') %>:</dt>
+                  <dd><%= @device.admission_date.strftime("%d-%m-%Y") %></dd>
+                  <dt><%= t('last_mantenace') %></dt><dd></dd>
+                  <dt><%= t('preventive') %>:</dt>
+                  <dd> 	10-07-2014</dd>
+                  <dt><%= t('corrective') %>:</dt>
+                  <dd> 	10-07-2014</dd>
+                  <dt><%= t('lubrication') %>:</dt>
+                  <dd> 	10-07-2014</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <dl class="dl-horizontal">
+                <dt><%= t('observation') %>:</dt>
+                <dd>
+                  <div class="well">
+                    <%= @device.observation %>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <dl class="dl-horizontal">
+                <dt><%= t('description') %>:</dt>
+                <dd>
+                  <div class="well">
+                    <%= @device.description %>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="ibox-title">
+                  <h4><%= t('electrical_data') %></h4>
+                </div>
+                <div class="col-lg-12">
+                  <dl class="dl-horizontal">
+                    <dt><%= t('electrical_start') %>:</dt>
+                    <dd><%= @device.electrical_start %></dd>
+                    <dt><%= t('electrical_control') %>:</dt>
+                    <dd><%= @device.electrical_control %></dd>
+                    <dt><%= t('electrical_commutator') %>:</dt>
+                    <dd><%= @device.electrical_commutator ? t('have') : t('dont_have') %></dd>
+                    <dt><%= t('electrical_inverter') %>:</dt>
+                    <dd><%= @device.electrical_inverter ? t('have') : t('dont_have') %></dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row"> <!-- Provider info -->
+                <div class="ibox-title">
+                  <h4><%= t('provider') %></h4>
+                </div>
+                <div class="col-lg-12">
+                  <dl class="dl-horizontal">
+                    <dt><i class="fa fa-building-o"></i></dt>
+                    <dd><%= "#{@device.provider.rut} #{@device.provider.company_name}" %></dd>
+                    <dt><i class="fa fa-map-marker"></i></dt>
+                    <dd><%= @device.provider.address %></dd>
+                    <dt><i class="fa fa-user"></i></dt>
+                    <dd>
+                      <%= "#{@device.provider.contact_name} - #{@device.provider.contact_position}" %>
+                    </dd>
+                    <dt><i class="fa fa-envelope"></i></dt>
+                    <dd><%= @device.provider.contact_email %></dd>
+                    <dt><i class="fa fa-phone"></i></dt>
+                    <dd><%= @device.provider.contact_phone %></dd>
+                    <dt><i class="fa fa-align-left"></i></dt>
+                    <dd>
+                      <div class="well">
+                        <%= @device.provider.observation %>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row m-t-sm">
+            <div class="col-lg-12">
+              <div class="panel blank-panel">
+                <div class="panel-heading">
+                  <div class="panel-options">
+                    <ul class="nav nav-tabs">
+                      <li class="active">
+                        <a href="#tab-1" data-toggle="tab">
+                          <%= t('supplies') %>
+                        </a>
+                      </li>
+                      <li class="">
+                        <a href="#tab-2" data-toggle="tab">
+                          <%= t('instruments') %>
+                        </a>
+                      </li>
+                      <li class="">
+                        <a href="#tab-3" data-toggle="tab">
+                          <%= t('lubricants') %>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="tab-1"> <!-- Supplies -->
+                      <div class="col-lg-12"> <!-- Supplies -->
+                        <%= render(
+                        partial: 'supplies',
+                        locals: {
+                          instrument: false,
+                          device_supplies: @device_supplies_supplies
+                          })
+                          %>
+                        </div> <!-- End Supplies -->
+                      </div> <!-- class="tab-pane active" id="tab-1" -->
+
+                      <div class="tab-pane" id="tab-2"> <!-- Instruments -->
+                        <div class="col-lg-12">
+                          <%= render(
+                          partial: 'supplies',
+                          locals: {
+                            instrument: true,
+                            device_supplies: @device_supplies_instrunents
+                            })
+                            %>
+                          </div>
+                        </div> <!-- class="tab-pane" id="tab-2" -->
+
+                        <div class="tab-pane" id="tab-3"> <!-- Lubricants -->
+                          <div class="col-lg-12">
+                            <%= render(
+                            partial: 'supplies',
+                            locals: {
+                              instrument: false,
+                              device_supplies: @device_supplies_lubricants
+                              })
+                              %>
+                            </div>
+                          </div> <!-- class="tab-pane" id="tab-2" -->
+
+                        </div> <!-- class="tab-content" -->
+                      </div> <!-- class="panel-body" -->
+                    </div> <!-- class="panel blank-panel" -->
+                  </div> <!-- class="col-lg-12" -->
+                </div> <!-- where start tab class="row m-t-sm" -->
+
+                <div class="row m-t-sm"> <!-- Tabs Mantenances -->
+                  <div class="col-lg-12">
+                    <div class="panel blank-panel">
+                      <div class="panel-heading">
+                        <div class="panel-options">
+                          <ul class="nav nav-tabs">
+                            <li class="active">
+                              <a href="#tab-mantenances-1" data-toggle="tab">
+                                <%= t('mantenance_preventives') %>
+                              </a>
+                            </li>
+                            <li class="">
+                              <a href="#tab-mantenances-2" data-toggle="tab">
+                                <%= t('mantenance_correctives') %>
+                              </a>
+                            </li>
+                            <li class="">
+                              <a href="#tab-mantenances-3" data-toggle="tab">
+                                <%= t('lubrications') %>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="tab-mantenances-1">
+                            <div class="col-lg-12">
+                              <h2>TODO mantenance_preventives</h2>
+                            </div>
+                          </div> <!-- class="tab-pane active" id="tab-mantenances-1" -->
+
+                          <div class="tab-pane" id="tab-mantenances-2">
+                            <div class="col-lg-12">
+                              <h2>TODO mantenance_correctives</h2>
+                            </div>
+                          </div> <!-- class="tab-pane" id="tab-mantenances-2" -->
+
+                          <div class="tab-pane" id="tab-mantenances-3">
+                            <div class="col-lg-12">
+                              <h2>TODO mantenance_lubrications</h2>
+                            </div>
+                          </div> <!-- class="tab-pane" id="tab-mantenances-2" -->
+
+                        </div> <!-- class="tab-content" -->
+                      </div> <!-- class="panel-body" -->
+                    </div> <!-- class="panel blank-panel" -->
+                  </div> <!-- class="col-lg-12" -->
+                </div> <!-- where start tab class="row m-t-sm" -->
+
+              </div> <!-- class="ibox-content" -->
+            </div> <!-- class="ibox" -->
+          </div> <!-- class="wrapper wrapper-content animated fadeInUp" -->
+        </div> <!-- END Side Right -->
+        <div class="col-lg-3"> <!-- Side Left  -->
+          <div class="wrapper wrapper-content animated fadeInUp">     <!--  Other Devices -->
+            <div class="ibox">
+              <div class="ibox-content">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <!-- Children Devices -->
+                    <h4><%= t('son_devices') %></h4>
+                    <%= render(
+                    partial: 'other_devices',
+                    locals: { devices: @device.devices}
+                    )%>
+
+                    <hr>
+                    <!-- Devices of this System -->
+                    <h4><%= "#{t('system_devices')}: #{@device.system.name}" %></h4>
+                    <%= render(
+                    partial: 'other_devices',
+                    locals: { devices: @system_devices}
+                    )%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

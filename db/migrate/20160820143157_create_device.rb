@@ -10,10 +10,10 @@ class CreateDevice < ActiveRecord::Migration
       t.string :potency
       t.string :production_capacity
       t.string :intake
-      t.integer :electrical_start
-      t.integer :electrical_control
-      t.boolean :electrical_commutador
-      t.boolean :electrical_inverter
+      t.integer :electrical_start, default: 0
+      t.integer :electrical_control, default: 0
+      t.boolean :electrical_commutator, default: false
+      t.boolean :electrical_inverter, default: false
       t.references :provider, index: true, foreign_key: true
       t.references :device_type, index: true, foreign_key: true
       t.references :system, index: true, foreign_key: true

@@ -1,12 +1,10 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2><%= t('.devices') %></h2>
+    <h2><%= t('devices') %></h2>
     <ol class="breadcrumb">
-      <li>
-        <a href="<%= url_for :controller => params[:controller], :action => params[:action] %>"> <%= params[:controller] %></a>
-      </li>
+      <%= render 'common/breadcrumb_home' %>
       <li class="active">
-        <strong><%= t('.devices') %></strong>
+        <strong><%= t('devices') %></strong>
       </li>
     </ol>
   </div>
@@ -19,57 +17,39 @@
     <div class="col-lg-12">
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5>Basic Data Tables example with responsive plugin</h5>
+          <h5><%= t('list_of_devices') %></h5>
           <div class="ibox-tools">
             <a class="collapse-link">
               <i class="fa fa-chevron-up"></i>
             </a>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="fa fa-wrench"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-              <li>
-                <a href="#">Config option 1</a>
-              </li>
-              <li>
-                <a href="#">Config option 2</a>
-              </li>
-            </ul>
-            <a class="close-link">
-              <i class="fa fa-times"></i>
-            </a>
           </div>
         </div>
         <div class="ibox-content">
-
-          <table class="table table-striped table-bordered table-hover dataTables-example">
+          <table id="table-devices" class="table table-striped table-bordered table-hover dataTables-devices"  cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th><%= t('.branch_name') %></th>
-                <th><%= t('.plant_name') %></th>
-                <th><%= t('.system_name') %></th>
-                <th><%= t('.provider_name') %></th>
-                <th><%= t('.serial_number') %></th>
-                <th><%= t('.name') %></th>
-                <th><%= t('.brand_model') %></th>
-                <th><%= t('.admission_date') %></th>
-                <th><%= t('.state') %></th>
+                <th><%= t('name') %></th>
+                <th><%= t('branch_name') %></th>
+                <th><%= t('plant_name') %></th>
+                <th><%= t('system_name') %></th>
+                <th><%= t('provider_name') %></th>
+                <th><%= t('serial_number') %></th>
+                <th><%= t('brand_model') %></th>
+                <th><%= t('admission_date') %></th>
+                <th><%= t('state') %></th>
               </tr>
             </thead>
-            <tbody>
-              <%= render @devices %>
-            </tbody>
             <tfoot>
               <tr>
-                <th><%= t('.branch_name') %></th>
-                <th><%= t('.plant_name') %></th>
-                <th><%= t('.system_name') %></th>
-                <th><%= t('.provider_name') %></th>
-                <th><%= t('.serial_number') %></th>
-                <th><%= t('.name') %></th>
-                <th><%= t('.brand_model') %></th>
-                <th><%= t('.admission_date') %></th>
-                <th><%= t('.state') %></th>
+                <th><%= t('name') %></th>
+                <th><%= t('branch_name') %></th>
+                <th><%= t('plant_name') %></th>
+                <th><%= t('system_name') %></th>
+                <th><%= t('provider_name') %></th>
+                <th><%= t('serial_number') %></th>
+                <th><%= t('brand_model') %></th>
+                <th><%= t('admission_date') %></th>
+                <th><%= t('state') %></th>
               </tr>
             </tfoot>
           </table>
@@ -83,46 +63,74 @@
 
 <% content_for :javascript do %>
 
-<script type="text/javascript">
+  <script type="text/javascript">
 
-$(function() {
+    $(function() {
+      $('#table-devices').DataTable({
+        pageLength: 25,
+        responsive: true,
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
+        },
 
-  $('.dataTables-example').DataTable({
-    "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
+        "ajax": {
+          "url": "<%= url_for :controller => params[:controller], :action => params[:action] %>"+".json"
+        },
+
+        "columns": [
+            {
+              data: "link",
+              render: function(data, type, row){
+                return '<a href="'+data.url+'">'+data.name+'</a>';
+              }
             },
-    dom: '<"html5buttons"B>lTfgitp',
-    buttons: [
-      {extend: 'csv',
-      text: "<i class='fa fa-file-text-o'></i> CSV"
-      },
+            { "data": "branch" },
+            { "data": "plant" },
+            { "data": "system" },
+            { "data": "provider" },
+            { "data": "serial_number" },
+            { "data": "brand_model" },
+            { "data": "admission_date" },
+            { "data": "state" }
+        ],
 
-      {extend: 'excel',
-      text: "<i class='fa fa-file-excel-o'></i> Excel",
-      title: "<%= t('.title') + ' ' + @company.try(:company_name)%>"
-      },
+        dom: '<"html5buttons"B>lTfgitp',
 
-      {extend: 'pdf',
-      text: "<i class='fa fa-file-pdf-o'></i> PDF",
-      title: "<%= t('.title') + ' ' + @company.try(:company_name)%>",
-      orientation: 'landscape'
-      },
+        buttons: [
+          {extend: 'csv',
+          text: "<i class='fa fa-file-text-o'></i> CSV"
+          },
 
-      {extend: 'print',
-      text: "<i class='fa fa-print'></i>",
-      title: "<%= t('.title') + ' ' + @company.try(:company_name)%>",
-      customize: function (win){
-        $(win.document.body).addClass('white-bg');
-        $(win.document.body).css('font-size', '10px');
+          {extend: 'excel',
+          text: "<i class='fa fa-file-excel-o'></i> Excel",
+          title: "<%= t('devices_of') + ' ' + @company.try(:company_name)%>"
+          },
 
-        $(win.document.body).find('table')
-        .addClass('compact')
-        .css('font-size', 'inherit');
-        }
-      }
-    ]
-  });
-});
+          {extend: 'pdf',
+          text: "<i class='fa fa-file-pdf-o'></i> PDF",
+          title: "<%= t('devices_of') + ' ' + @company.try(:company_name)%>",
+          orientation: 'landscape'
+          },
 
-</script>
+          {extend: 'print',
+          text: "<i class='fa fa-print'></i>",
+          title: "<%= t('devices_of') + ' ' + @company.try(:company_name)%>",
+          customize: function (win){
+            $(win.document.body).addClass('white-bg');
+            $(win.document.body).css('font-size', '10px');
+
+            $(win.document.body).find('table')
+            .addClass('compact')
+            .css('font-size', 'inherit');
+            }
+          }
+        ]
+      });
+    });
+  </script>
 <% end %>
+<style media="screen">
+  /*#table-devices td {
+    cursor: pointer;
+  }*/
+</style>

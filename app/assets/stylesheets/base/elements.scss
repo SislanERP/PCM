@@ -83,14 +83,20 @@
   right: 0;
 }
 
-/* CHOSEN PLUGIN */
+.onoffswitch-checkbox:disabled + .onoffswitch-label .onoffswitch-inner:before {
+  background-color: #919191;
+}
 
+.onoffswitch-checkbox:disabled + .onoffswitch-label,
+.onoffswitch-checkbox:disabled + .onoffswitch-label .onoffswitch-switch{
+  border-color: #919191;
+}
+
+/* CHOSEN PLUGIN */
 .chosen-container-single .chosen-single {
   background: #ffffff;
   box-shadow: none;
   -moz-box-sizing: border-box;
-  background-color: #FFFFFF;
-  border: 1px solid #CBD5DD;
   border-radius: 2px;
   cursor: text;
   height: auto !important;
@@ -104,7 +110,7 @@
 
 .chosen-container-multi .chosen-choices li.search-choice {
   background: #f1f1f1;
-  border: 1px solid #ededed;
+  border: 1px solid #e5e6e7;
   border-radius: 2px;
   box-shadow: none;
   color: #333333;
@@ -114,6 +120,14 @@
   padding: 3px 20px 3px 5px;
   position: relative;
 }
+
+/* Tags Input Plugin */
+
+.bootstrap-tagsinput {
+  border: 1px solid #e5e6e7;
+  box-shadow: none;
+}
+
 
 /* PAGINATIN */
 
@@ -522,12 +536,29 @@ a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.acti
   height: 200px;
 }
 
+
 .h-150 {
   min-height: 150px;
 }
 
 .h-200 {
   min-height: 200px;
+}
+
+.h-300 {
+  min-height: 300px;
+}
+
+.w-150 {
+  min-height: 150px;
+}
+
+.w-200 {
+  min-height: 200px;
+}
+
+.w-300 {
+  min-height: 300px;
 }
 
 .legendLabel {
@@ -2440,4 +2471,26 @@ body.tour-open .animated {
 /* Wizard step fix */
 .wizard > .content > .body {
   position: relative
+}
+
+
+/* PDF js style */
+
+.pdf-toolbar {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Dropzone */
+
+.dropzone {
+  min-height: 140px;
+  border: 1px dashed $navy;
+  background: white;
+  padding: 20px 20px;
+
+  .dz-message {
+    font-size: 16px;
+
+  }
 }

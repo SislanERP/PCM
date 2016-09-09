@@ -30,14 +30,41 @@
         <div class="logo-element">
           PCM
         </div>
-      </li>
-      <li class="<%= 'active' if current_page?(company_devices_path) %>">
-        <%= link_to company_devices_path do %>
-        <i class="fa fa-wrench"></i> <span class="nav-label"><%= t('.devices') %></span>
-        <% end %>
-      </li>
+      </li> <!-- End nav header -->
+      <!-- devices menu -->
+      <li class="<%= is_active_controller('devices') %>">
+        <a href="">
+          <i class="fa fa-gears"></i> <span class="nav-label"><%= t('.devices') %></span>
+          <!-- <span class="fa arrow"></span> -->
+        </a>
 
+        <!-- <ul class="nav nav-second-level collapse <%= is_active_controller('devices') %>">
+          <li class="<%= is_active_action('devices', 'index') %>">
+            <%= link_to t('.list_of_devices'), company_devices_path %>
+          </li>
+          <li class="<%= is_active_action('devices', 'show') %>">
+            <%= link_to t('.list_of_devices'), "" %>
+          </li>
+        </ul> -->
+      </li>
+      <!-- end devices menu -->
+      <!-- Maintenances menu -->
+      <li class="<%= is_active_controller('maintenances') %>">
+        <a href="">
+          <i class="fa fa-edit"></i> <span class="nav-label"><%= t('.maintenances') %></span>
+          <span class="fa arrow"></span>
+        </a>
+
+        <ul class="nav nav-second-level collapse <%= is_active_controller('maintenances') %>">
+          <li class="<%= is_active_action('maintenances', 'index') %>">
+            <%= link_to t('.list_of_maintenances'), company_devices_path %>
+          </li>
+          <li class="<%= is_active_action('maintenances', 'new') %>">
+            <%= link_to t('.list_of_maintenances'), company_devices_path %>
+          </li>
+        </ul>
+      </li>
+      <!-- end maitenances menu -->
     </ul>
-
   </div>
 </nav>
