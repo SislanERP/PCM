@@ -3,4 +3,7 @@ en:
     topnavbar:
       search_something: Search for something...
     navigation:
-      devices: Equipments  
+      devices: Equipments
+      list_of_devices: List of equipments
+      maintenances: Maintenances
+      list_of_maintenances: List of maintenances

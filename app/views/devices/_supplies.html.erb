@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <%= "<th>#{t('type')}</th>".html_safe if instrument %>
+        <th><%= t('cod') %></th>
+        <th><%= t('name') %></th>
+        <th><%= t('quantity') %></th>
+        <%= "<th>#{t('um')}</th>".html_safe unless instrument %>
+      </tr>
+    </thead>
+    <tbody>
+      <% device_supplies.each do |device_supply| %>
+        <tr>
+          <%= "<td>#{device_supply.instrument_type.name}</td>".html_safe if instrument %>
+          <td><%= device_supply.supply.warehouse_code %></td>
+          <td><%= device_supply.supply.name %></td>
+          <td><%= device_supply.cuantity %></td>
+          <%= "<td>#{device_supply.supply.um}</td>".html_safe unless instrument %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

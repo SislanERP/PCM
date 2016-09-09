@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(version: 20160824221144) do
   end
 
   create_table "company_users", force: :cascade do |t|
+    t.string   "position"
     t.integer  "company_id"
     t.integer  "user_id"
+    t.integer  "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "position"
-    t.integer  "role_id"
   end
 
   add_index "company_users", ["company_id"], name: "index_company_users_on_company_id", using: :btree
@@ -96,11 +96,12 @@ ActiveRecord::Schema.define(version: 20160824221144) do
 
   create_table "device_supplies", force: :cascade do |t|
     t.float    "cuantity"
+    t.boolean  "lubrication",        default: false
     t.integer  "supply_id"
     t.integer  "device_id"
     t.integer  "instrument_type_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   add_index "device_supplies", ["device_id"], name: "index_device_supplies_on_device_id", using: :btree
@@ -125,16 +126,16 @@ ActiveRecord::Schema.define(version: 20160824221144) do
     t.string   "potency"
     t.string   "production_capacity"
     t.string   "intake"
-    t.integer  "electrical_start"
-    t.integer  "electrical_control"
-    t.boolean  "electrical_commutador"
-    t.boolean  "electrical_inverter"
+    t.integer  "electrical_start",      default: 0
+    t.integer  "electrical_control",    default: 0
+    t.boolean  "electrical_commutator", default: false
+    t.boolean  "electrical_inverter",   default: false
     t.integer  "provider_id"
     t.integer  "device_type_id"
     t.integer  "system_id"
     t.integer  "device_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "devices", ["device_id"], name: "index_devices_on_device_id", using: :btree
@@ -272,6 +273,7 @@ ActiveRecord::Schema.define(version: 20160824221144) do
 
   create_table "supplies", force: :cascade do |t|
     t.string   "name"
+    t.string   "brand_model"
     t.string   "warehouse_code"
     t.string   "part_number"
     t.float    "price"
@@ -280,7 +282,6 @@ ActiveRecord::Schema.define(version: 20160824221144) do
     t.integer  "item_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "brand_model"
   end
 
   add_index "supplies", ["item_id"], name: "index_supplies_on_item_id", using: :btree
@@ -301,12 +302,12 @@ ActiveRecord::Schema.define(version: 20160824221144) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.integer  "sequence"
     t.string   "description"
     t.integer  "task_type_id"
     t.integer  "master_maintenance_plan_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "sequence"
   end
 
   add_index "tasks", ["master_maintenance_plan_id"], name: "index_tasks_on_master_maintenance_plan_id", using: :btree

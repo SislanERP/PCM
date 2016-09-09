@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  devices: Equipments
+  devices_details: Equipments Details
+  devices_of: Equipments of
+  devices_edit: Equipment Edit

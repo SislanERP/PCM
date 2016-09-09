@@ -1,23 +1,15 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get 'devices/index'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
   root 'companies#index'
 
   devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
+    sessions: 'users/sessions'
+  }
 
-  resources :companies do
-    resources :devices, only: [:index]
-    member do
-      get 'home/index'
-      get 'home/minor'
-    end
+  resources :companies, only: [:index] do
+    resources :devices, only: [:index, :show]
   end
 
 

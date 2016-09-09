@@ -1,7 +1,61 @@
 es:
+  devices: Equipos
+  devices_of: Equipos de
+  devices_details: Detalle de Equipos
+  devices_edit: Editar Equipo
+  branch: Sucursal
+  plant: Planta
+  system: Sistema
+  device_type: Tipo de Equipo
+  admission_date: Fecha de Ingreso
+  last_mantenace: Última Mantención
+  preventive: Preventiva
+  mantenance_preventives: Mantenciones Preventivas
+  corrective: Correctiva
+  mantenance_correctives: Mantenciones Correctivas
+  lubrications: Lubricaciones
+  lubricants: Lubricantes
+  lubrication: Lubricación
+  brand_model: Marca Modelo
+  potency: Potencia
+  production_capacity: Capacidad de Prod
+  intake: Consumo
+  estatus: Estado
+  observation: Observación
+  description: Descripción
+  general_data: Datos Generales
+  electrical_data: Datos Eléctricos
+  have: Tiene
+  dont_have: No Tiene
+  more_devices_of: Más Equipos de
+  electrical_start: Partida
+  electrical_control: Control
+  electrical_commutator: Conmutador
+  electrical_inverter: Inversor
+  provider: Proveedor
+  supplies: Repuestos
+  instruments: Instrumentos
+  devices: Equipos
+  branch_name: Sucursal
+  plant_name: Planta
+  system_name: Sistema
+  provider_name: Proveedor
+  serial_number: Codigo
+  name: Nombre
+  brand_model: Marca - Modelo
+  admission_date: Fecha ingreso
+  state: Estado
+  title: Equipos de
+  list_of_devices: Lista de equipos
+  cod: Código
+  quantity: Cantidad
+  um: UM
+  type: Tipo
   remember_me: Recordarme
   name: Nombre
   position: Cargo
+  father_device: Equipo Padre
+  son_devices: Equipos Hijo
   email: Correo electrónico
   password: Contraseña
   activerecord:
@@ -59,6 +113,7 @@ es:
       default: "%d/%m/%Y"
       long: "%A %d de %B de %Y"
       short: "%d de %b"
+      year_and_month: "%Y %b"
     month_names:
     -
     - enero
@@ -228,4 +283,5 @@ es:
       default: "%A, %d de %B de %Y %H:%M:%S %z"
       long: "%A %d de %B de %Y %H:%M"
       short: "%d de %b %H:%M"
+      year_and_month: "%Y %b"
     pm: pm
