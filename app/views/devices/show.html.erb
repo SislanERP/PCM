@@ -30,17 +30,17 @@
             </div>
           </div>
           <% unless @device.device == nil %>
-            <div class="row"> <!-- Father Device -->
-              <div class="col-lg-12">
-                <dl class="dl-horizontal">
-                  <dt><%= t('father_device') %>:</dt>
-                  <dd>
-                    <%= link_to "<i class='fa fa-eye'></i>".html_safe, [@company, @device.device] %>
-                    <%= @device.name %>
-                  </dd>
-                </dl>
-              </div>
-            </div> <!-- END Father Device -->
+          <div class="row"> <!-- Father Device -->
+            <div class="col-lg-12">
+              <dl class="dl-horizontal">
+                <dt><%= t('father_device') %>:</dt>
+                <dd>
+                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, [@company, @device.device] %>
+                  <%= @device.device.name %>
+                </dd>
+              </dl>
+            </div>
+          </div> <!-- END Father Device -->
           <% end %>
           <div class="row">
             <div class="ibox-title">
@@ -199,125 +199,123 @@
                     <div class="tab-pane active" id="tab-1"> <!-- Supplies -->
                       <div class="col-lg-12"> <!-- Supplies -->
                         <%= render(
-                          partial: 'supplies',
-                          locals: {
-                            instrument: false,
-                            device_supplies: @device_supplies_supplies
+                        partial: 'supplies',
+                        locals: {
+                          instrument: false,
+                          device_supplies: @device_supplies_supplies
                           })
-                        %>
-                      </div> <!-- End Supplies -->
-                    </div> <!-- class="tab-pane active" id="tab-1" -->
+                          %>
+                        </div> <!-- End Supplies -->
+                      </div> <!-- class="tab-pane active" id="tab-1" -->
 
-                    <div class="tab-pane" id="tab-2"> <!-- Instruments -->
-                      <div class="col-lg-12">
-                        <%= render(
+                      <div class="tab-pane" id="tab-2"> <!-- Instruments -->
+                        <div class="col-lg-12">
+                          <%= render(
                           partial: 'supplies',
                           locals: {
                             instrument: true,
                             device_supplies: @device_supplies_instrunents
-                          })
-                        %>
+                            })
+                            %>
+                          </div>
+                        </div> <!-- class="tab-pane" id="tab-2" -->
+
+                        <div class="tab-pane" id="tab-3"> <!-- Lubricants -->
+                          <div class="col-lg-12">
+                            <%= render(
+                            partial: 'supplies',
+                            locals: {
+                              instrument: false,
+                              device_supplies: @device_supplies_lubricants
+                              })
+                              %>
+                            </div>
+                          </div> <!-- class="tab-pane" id="tab-2" -->
+
+                        </div> <!-- class="tab-content" -->
+                      </div> <!-- class="panel-body" -->
+                    </div> <!-- class="panel blank-panel" -->
+                  </div> <!-- class="col-lg-12" -->
+                </div> <!-- where start tab class="row m-t-sm" -->
+
+                <div class="row m-t-sm"> <!-- Tabs Mantenances -->
+                  <div class="col-lg-12">
+                    <div class="panel blank-panel">
+                      <div class="panel-heading">
+                        <div class="panel-options">
+                          <ul class="nav nav-tabs">
+                            <li class="active">
+                              <a href="#tab-mantenances-1" data-toggle="tab">
+                                <%= t('mantenance_preventives') %>
+                              </a>
+                            </li>
+                            <li class="">
+                              <a href="#tab-mantenances-2" data-toggle="tab">
+                                <%= t('mantenance_correctives') %>
+                              </a>
+                            </li>
+                            <li class="">
+                              <a href="#tab-mantenances-3" data-toggle="tab">
+                                <%= t('lubrications') %>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
-                    </div> <!-- class="tab-pane" id="tab-2" -->
+                      <div class="panel-body">
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="tab-mantenances-1">
+                            <div class="col-lg-12">
+                              <h2>TODO mantenance_preventives</h2>
+                            </div>
+                          </div> <!-- class="tab-pane active" id="tab-mantenances-1" -->
 
-                    <div class="tab-pane" id="tab-3"> <!-- Lubricants -->
-                      <div class="col-lg-12">
-                        <%= render(
-                          partial: 'supplies',
-                          locals: {
-                            instrument: false,
-                            device_supplies: @device_supplies_lubricants
-                          })
-                        %>
-                      </div>
-                    </div> <!-- class="tab-pane" id="tab-2" -->
+                          <div class="tab-pane" id="tab-mantenances-2">
+                            <div class="col-lg-12">
+                              <h2>TODO mantenance_correctives</h2>
+                            </div>
+                          </div> <!-- class="tab-pane" id="tab-mantenances-2" -->
 
-                  </div> <!-- class="tab-content" -->
-                </div> <!-- class="panel-body" -->
-              </div> <!-- class="panel blank-panel" -->
-            </div> <!-- class="col-lg-12" -->
-          </div> <!-- where start tab class="row m-t-sm" -->
+                          <div class="tab-pane" id="tab-mantenances-3">
+                            <div class="col-lg-12">
+                              <h2>TODO mantenance_lubrications</h2>
+                            </div>
+                          </div> <!-- class="tab-pane" id="tab-mantenances-2" -->
 
-          <div class="row m-t-sm"> <!-- Tabs Mantenances -->
-            <div class="col-lg-12">
-              <div class="panel blank-panel">
-                <div class="panel-heading">
-                  <div class="panel-options">
-                    <ul class="nav nav-tabs">
-                      <li class="active">
-                        <a href="#tab-mantenances-1" data-toggle="tab">
-                          <%= t('mantenance_preventives') %>
-                        </a>
-                      </li>
-                      <li class="">
-                        <a href="#tab-mantenances-2" data-toggle="tab">
-                          <%= t('mantenance_correctives') %>
-                        </a>
-                      </li>
-                      <li class="">
-                        <a href="#tab-mantenances-3" data-toggle="tab">
-                          <%= t('lubrications') %>
-                        </a>
-                      </li>
-                    </ul>
+                        </div> <!-- class="tab-content" -->
+                      </div> <!-- class="panel-body" -->
+                    </div> <!-- class="panel blank-panel" -->
+                  </div> <!-- class="col-lg-12" -->
+                </div> <!-- where start tab class="row m-t-sm" -->
+
+              </div> <!-- class="ibox-content" -->
+            </div> <!-- class="ibox" -->
+          </div> <!-- class="wrapper wrapper-content animated fadeInUp" -->
+        </div> <!-- END Side Right -->
+        <div class="col-lg-3"> <!-- Side Left  -->
+          <div class="wrapper wrapper-content animated fadeInUp">     <!--  Other Devices -->
+            <div class="ibox">
+              <div class="ibox-content">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <!-- Children Devices -->
+                    <h4><%= t('son_devices') %></h4>
+                    <%= render(
+                    partial: 'other_devices',
+                    locals: { devices: @device.devices}
+                    )%>
+
+                    <hr>
+                    <!-- Devices of this System -->
+                    <h4><%= "#{t('system_devices')}: #{@device.system.name}" %></h4> 
+                    <%= render(
+                    partial: 'other_devices',
+                    locals: { devices: @system_devices}
+                    )%>
                   </div>
                 </div>
-                <div class="panel-body">
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="tab-mantenances-1">
-                      <div class="col-lg-12">
-                        <h2>TODO mantenance_preventives</h2>
-                      </div>
-                    </div> <!-- class="tab-pane active" id="tab-mantenances-1" -->
-
-                    <div class="tab-pane" id="tab-mantenances-2">
-                      <div class="col-lg-12">
-                        <h2>TODO mantenance_correctives</h2>
-                      </div>
-                    </div> <!-- class="tab-pane" id="tab-mantenances-2" -->
-
-                    <div class="tab-pane" id="tab-mantenances-3">
-                      <div class="col-lg-12">
-                        <h2>TODO mantenance_lubrications</h2>
-                      </div>
-                    </div> <!-- class="tab-pane" id="tab-mantenances-2" -->
-
-                  </div> <!-- class="tab-content" -->
-                </div> <!-- class="panel-body" -->
-              </div> <!-- class="panel blank-panel" -->
-            </div> <!-- class="col-lg-12" -->
-          </div> <!-- where start tab class="row m-t-sm" -->
-
-        </div> <!-- class="ibox-content" -->
-      </div> <!-- class="ibox" -->
-    </div> <!-- class="wrapper wrapper-content animated fadeInUp" -->
-  </div> <!-- END Side Right -->
-  <div class="col-lg-3"> <!-- Side Left  -->
-<div class="wrapper wrapper-content animated fadeInUp">     <!--  Other Devices -->
-      <div class="ibox">
-        <div class="ibox-content">
-          <div class="row">
-          <div class="col-lg-12">
-
-
-
-      <h4><%= t('son_devices') %></h4> <!-- Son Devices -->
-        <%= render(
-          partial: 'other_devices',
-          locals: { devices: @device.devices}
-        )%>
-
-      <hr>
-
-      <h4><%= "#{t('more_devices_of')}: #{@device.system.name}" %></h4> <!-- Devices of System -->
-        <%= render(
-          partial: 'other_devices',
-          locals: { devices: @system_devices}
-        )%>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-  </div>
-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -1,14 +1,14 @@
 class Device < ActiveRecord::Base
   belongs_to :provider
   belongs_to :device_type
+
   belongs_to :device
+  has_many :devices, dependent: :destroy
 
   belongs_to :system
   has_one :plant, through: :system
   has_one :branch, through: :plant
   has_one :company, through: :branch
-
-  has_many :devices
 
   has_many :device_supplies
   has_many :supplies, through: :device_supplies

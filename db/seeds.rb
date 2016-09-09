@@ -278,10 +278,10 @@ landes_DMR14 = Device.create!(serial_number: 'D-MR.14', name: 'Motoreductor  Ele
 landes_GBC01 = Device.create!(serial_number: 'G-BC-01', name: 'Bomba Codenso Limpio', brand_model: 'SIHI NOWA6520', admission_date: '12-10-2010', description: '', observation: '', potency: '', production_capacity: '214', system: landes_PLANTA_EVAPORADORA, device_type: landes_sihi_nowa6520, provider: landes_sihi_chile)
 landes_EBC01 = Device.create!(serial_number: 'E-BC.01', name: 'Bomba Lavador de Gases Pos Secador', brand_model: 'SIHI SC 15026 OB', admission_date: '12-10-2010', description: '300 M3/hora  a  20 mca,  30 kw', observation: '', potency: '300 M3/H', production_capacity: '1445', system: landes_SECADORES, device_type: landes_sihi_sc_15026_ob, provider: landes_sihi_chile)
 landes_BBE05 = Device.create!(serial_number: 'B-BE-05', name: 'Bomba  Petroleo   6  de  Estanque  a  Estanque  Diario', brand_model: 'VIKING LS125', admission_date: '12-10-2010', description: '', observation: 'chequeo de prensa estopa-chequeo de nivel de aceite- mantención de aislación -lubricación', potency: '', production_capacity: '980', system: landes_CALDERA, device_type: landes_viking_ls125, provider: landes_sihi_chile)
-landes_HMT01 = Device.create!(serial_number: 'H-MT-01', name: 'Motovariador Cinta Transportadora  Línea  1', brand_model: 'ZEW ', admission_date: '12-10-2010', description: '', observation: '', potency: '', production_capacity: '', system: landes_LINEA_FINAL, device_type: landes_zew, provider: landes_sew_eurodrive)
-landes_HTC03 = Device.create!(serial_number: 'H-TC-03', name: 'Cinta  Transportadora  Línea   3', brand_model: 'ZEW ', admission_date: '12-10-2010', description: '', observation: '', potency: '', production_capacity: '', system: landes_LINEA_FINAL, device_type: landes_zew, provider: landes_sew_eurodrive)
+
+
 landes_FME24 = Device.create!(serial_number: 'F-ME.24', name: 'Motor Eléctrico Lava Platos  Centrifugas', brand_model: 'SIEMENS 100 L', admission_date: '12-10-2010', description: '', observation: '', potency: '3.2 KW', production_capacity: '1410', system: landes_PLANTA_DE_ACEITE, device_type: landes_siemens_100_l, provider: landes_lureye)
-landes_HMR15 = Device.create!(serial_number: 'H-MR-15', name: 'Moto  reductor  Cinta  Transportadora  Salida  de Sacos', brand_model: 'SIEMENS 112 M', admission_date: '12-10-2010', description: '', observation: '', potency: '8.2 KW', production_capacity: '1440', system: landes_LINEA_FINAL, device_type: landes_siemens_112_m, provider: landes_lureye)
+
 landes_FME31 = Device.create!(serial_number: 'F-ME.31', name: 'Motor Bomba Lodo Centrifuga  1,2,3', brand_model: 'Siemens 160 M', admission_date: '12-10-2010', description: '', observation: '', potency: '15 HP', production_capacity: '1460', system: landes_PLANTA_DE_ACEITE, device_type: landes_siemens_160_m, provider: landes_lureye)
 landes_EME17 = Device.create!(serial_number: 'E-ME.17', name: 'Motor Eléctrico Chancho  Limpiador de Harina 1', brand_model: 'VEM 160L6', admission_date: '12-10-2010', description: '', observation: '', potency: '15 HP', production_capacity: '965', system: landes_SECADORES, device_type: landes_vem_160l6, provider: landes_lureye)
 landes_EME15 = Device.create!(serial_number: 'E-ME.15', name: 'Motor  Eléctrico   Enfriador  1', brand_model: 'VEM KPER 250 M4', admission_date: '12-10-2010', description: '', observation: '', potency: '75 HP', production_capacity: '1475', system: landes_SECADORES, device_type: landes_vem_kper_250_m4, provider: landes_lureye)
@@ -354,6 +354,7 @@ landes_EME20 = Device.create!(serial_number: 'E-ME.20', name: 'Motor  Eléctrico
 landes_AGBC01 = Device.create!(serial_number: 'AG-BC.01', name: 'Bomba centrifuga', brand_model: 'Waukesha Inoxidable', admission_date: '11-11-2011', description: '', observation: '', potency: '2,2 Kw', production_capacity: '2840', system: landes_SECADORES, device_type: landes_waukesha_inoxidable, provider: landes_alfa_laval_chile)
 landes_CME04 = Device.create!(serial_number: 'C-ME.04', name: 'Motor Electrico  Bomba  Agua Sangre Rastra 1 y 2', brand_model: 'WEG 90 S', admission_date: '12-10-2010', description: '', observation: '', potency: '2  HP', production_capacity: '2900', system: landes_POZOS, device_type: landes_weg_90_s, provider: landes_alfa_laval_chile)
 
+# Father
 landes_HPA01 = Device.create!(
   serial_number: 'H-PA-01',
   name: 'Planta  Antioxidante  Línea  1',
@@ -368,10 +369,25 @@ landes_HPA01 = Device.create!(
   provider: landes_alfa_laval_chile
 )
 
-landes_HPA01.devices.build(device: landes_HMT01)
-landes_HPA01.devices.build(device: landes_HTC03)
-landes_HPA01.devices.build(device: landes_HMR15)
-landes_HPA01.save!
+#Children Devices
+landes_HMT01 = Device.create!(serial_number: 'H-MT-01', name: 'Motovariador Cinta Transportadora  Línea  1', brand_model: 'ZEW ', admission_date: '12-10-2010', description: '', observation: '', potency: '', production_capacity: '', system: landes_LINEA_FINAL, device_type: landes_zew, provider: landes_sew_eurodrive,
+device: landes_HPA01)
+
+landes_HTC03 = Device.create!(serial_number: 'H-TC-03', name: 'Cinta  Transportadora  Línea   3', brand_model: 'ZEW ', admission_date: '12-10-2010', description: '', observation: '', potency: '', production_capacity: '', system: landes_LINEA_FINAL, device_type: landes_zew, provider: landes_sew_eurodrive,
+device: landes_HPA01)
+
+landes_HMR15 = Device.create!(serial_number: 'H-MR-15', name: 'Moto  reductor  Cinta  Transportadora  Salida  de Sacos', brand_model: 'SIEMENS 112 M', admission_date: '12-10-2010', description: '', observation: '', potency: '8.2 KW', production_capacity: '1440', system: landes_LINEA_FINAL, device_type: landes_siemens_112_m, provider: landes_lureye,
+device: landes_HPA01)
+
+# landes_HPA01.devices = landes_HMT01
+# landes_HPA01.devices = landes_HTC03
+# landes_HPA01.devices = landes_HMR15
+# landes_HPA01.save!
+
+# landes_HPA01.devices.build(device: landes_HMT01)
+# landes_HPA01.devices.build(device: landes_HTC03)
+# landes_HPA01.devices.build(device: landes_HMR15)
+# landes_HPA01.save!
 
 #device.device_supplies.build(supply: supplies.sample, cuantity: i+1 )
 # Items
