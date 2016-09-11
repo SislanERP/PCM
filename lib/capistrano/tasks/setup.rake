@@ -36,7 +36,7 @@ namespace :setup do
   end
 
   desc "Seed the database for staging."
-  task :seed do
+  task :seed_staging do
     on roles(:app) do
       within "#{current_path}" do
         with rails_env: :staging do
