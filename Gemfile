@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
+
 # Use for template
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails', '4.3.0.0'
@@ -10,6 +11,9 @@ gem 'font-awesome-rails', '4.3.0.0'
 # Login
 gem 'devise', '~> 4.2.0'
 gem 'activeadmin', github: 'activeadmin'
+
+# For Frinedly url's
+gem 'friendly_id', '~> 5.1.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'

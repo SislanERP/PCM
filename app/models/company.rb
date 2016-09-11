@@ -1,4 +1,7 @@
 class Company < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :fantasy_name, use: :slugged
+
   has_many :company_users, dependent: :destroy
   has_many :users, through: :company_users
   has_many :branchs

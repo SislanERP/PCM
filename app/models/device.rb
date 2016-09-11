@@ -35,12 +35,12 @@ class Device < ActiveRecord::Base
   }
 
   def self.devices_by_company(company_id)
-    Device.joins(:company).where("companies.id = ?", company_id)
+    Device.joins(:company).where("companies.slug = ?", company_id)
   end
 
   def instruments
     device_supplies.
-    Device.joins(:company).where("companies.id = ?", company_id)
+    Device.joins(:company).where("companies.slug = ?", company_id)
   end
 
   def state
