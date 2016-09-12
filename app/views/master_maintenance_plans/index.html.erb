@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Master Maintenance Plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @master_maintenance_plans.each do |master_maintenance_plan| %>
+      <tr>
+        <td><%= link_to 'Show', master_maintenance_plan %></td>
+        <td><%= link_to 'Edit', edit_master_maintenance_plan_path(master_maintenance_plan) %></td>
+        <td><%= link_to 'Destroy', master_maintenance_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Master maintenance plan', new_master_maintenance_plan_path %>

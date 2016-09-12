@@ -1,0 +1,1 @@
+json.array! @master_maintenance_plans, partial: 'master_maintenance_plans/master_maintenance_plan', as: :master_maintenance_plan

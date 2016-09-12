@@ -57,6 +57,7 @@ es:
   father_device: Equipo Padre
   son_devices: Equipos Hijo
   system_devices: Equipos del Sistema
+  type_of_devices: Tipos de Equipo
   email: Correo electrónico
   password: Contraseña
   activerecord:

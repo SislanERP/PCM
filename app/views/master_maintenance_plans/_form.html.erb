@@ -1,0 +1,17 @@
+<%= form_for(@master_maintenance_plan) do |f| %>
+  <% if @master_maintenance_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@master_maintenance_plan.errors.count, "error") %> prohibited this master_maintenance_plan from being saved:</h2>
+
+      <ul>
+      <% @master_maintenance_plan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

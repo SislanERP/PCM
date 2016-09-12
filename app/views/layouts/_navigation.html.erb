@@ -3,6 +3,9 @@
     <ul class="nav metismenu" id="side-menu">
       <li class="nav-header">
         <div class="dropdown profile-element">
+          <span>
+              <img alt="image" class="img-circle" src="<%= image_url 'profile_small.jpg' %>"/>
+          </span>
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <span class="clear">
               <span class="block m-t-xs">
@@ -32,20 +35,22 @@
         </div>
       </li> <!-- End nav header -->
       <!-- devices menu -->
-      <li class="<%= is_active_controller('devices') %>">
+      <li class="<%= is_active_device %>">
         <a href="">
           <i class="fa fa-gears"></i> <span class="nav-label"><%= t('.devices') %></span>
-          <!-- <span class="fa arrow"></span> -->
+          <span class="fa arrow"></span>
         </a>
-
-        <!-- <ul class="nav nav-second-level collapse <%= is_active_controller('devices') %>">
-          <li class="<%= is_active_action('devices', 'index') %>">
+        <!-- Second Level of Devices -->
+        <ul class="nav nav-second-level collapse <%= is_active_device %>">
+          <!-- list_of_devices -->
+          <li class="<%= is_active_list_of_device %>">
             <%= link_to t('.list_of_devices'), company_devices_path %>
           </li>
-          <li class="<%= is_active_action('devices', 'show') %>">
-            <%= link_to t('.list_of_devices'), "" %>
+          <!-- list of type of devices -->
+          <li class="<%= is_active_action('device_types', 'index') %>">
+            <%= link_to t('type_of_devices'), company_device_types_path %>
           </li>
-        </ul> -->
+        </ul>
       </li>
       <!-- end devices menu -->
       <!-- Maintenances menu -->
