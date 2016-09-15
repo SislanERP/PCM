@@ -58,6 +58,15 @@ es:
   son_devices: Equipos Hijo
   system_devices: Equipos del Sistema
   type_of_devices: Tipos de Equipo
+  device_type_new: Nuevo Tipo de Equipo
+  devices_of_type: Equipos del Tipo
+  master_plan_of_type: Planes Maestros del Tipo
+  are_you_sure: ¿Estas seguro?
+  you_can_not_be_recovered_this_record: No se podrá recuperar este registro!
+  yes_delete_it: Si, estoy seguro
+  cancel: Cancelar
+  detail_of: Detalle de
+  cannot_delete_device_type_that_are_already_associated_devices: No se puede borrar un tipo de equipo que tenga asociado equipos
   email: Correo electrónico
   password: Contraseña
   activerecord:
