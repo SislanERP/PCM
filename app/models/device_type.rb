@@ -7,7 +7,17 @@ class DeviceType < ActiveRecord::Base
   has_one :branch, through: :plant
   has_one :company, through: :branch
 
+  before_destroy :check_for_devices
+
   def self.all_by_company(company_id)
-    DeviceType.joins(:company).where("companies.slug = ?", company_id)
+    DeviceType.joins(:company).where("companies.slug = ?", company_id).uniq
   end
+
+  def check_for_devices
+    if devices.any?
+      errors[:base] << I18n.t('cannot_delete_device_type_that_are_already_associated_devices')
+      return false
+    end
+  end
+
 end

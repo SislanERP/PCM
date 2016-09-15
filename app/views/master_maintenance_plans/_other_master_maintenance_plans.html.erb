@@ -1,11 +1,11 @@
-<% unless devices.nil? or devices.blank?  %>
+<% unless master_maintenance_plans.nil? or master_maintenance_plans.blank?  %>
   <ul class="todo-list m-t small-list">
-    <% devices.each do |device| %>
+    <% master_maintenance_plans.each do |master_maintenance_plan| %>
       <li>
         <strong>
-          <%= link_to [@company, device] do %>
+          <%= link_to [@company, @device_type, master_maintenance_plan] do %>
             <span class='m-l-xs'>
-              <%= device.name %>
+              <%= master_maintenance_plan.subject %>
             </span>
           <% end %>
         </strong>

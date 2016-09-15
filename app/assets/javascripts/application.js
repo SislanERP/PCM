@@ -18,3 +18,6 @@
 //= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require inspinia.js
+//= require sweetalert/sweetalert.min.js
+//= require toastr/toastr.min.js
+//= require options_notification.js

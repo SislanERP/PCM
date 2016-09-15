@@ -1,4 +1,4 @@
-<%= form_for(@device_type) do |f| %>
+<%= form_for([@company, @device_type]) do |f| %>
   <% if @device_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@device_type.errors.count, "error") %> prohibited this device_type from being saved:</h2>
@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
