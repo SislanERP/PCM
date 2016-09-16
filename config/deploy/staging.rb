@@ -7,7 +7,7 @@ set :stage, :staging
 set :rails_env, :staging
 
 
-server '54.197.201.17', user: 'ubuntu', roles: %w{web app db}, primary: true
+server '13.65.32.197', user: 'ubuntu', roles: %w{web app db}, primary: true
 
 # Don't change these unless you know what you're doing
 set :pty                     , true
