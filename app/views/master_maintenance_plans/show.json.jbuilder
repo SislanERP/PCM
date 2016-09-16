@@ -1,0 +1,1 @@
+json.partial! "master_maintenance_plans/master_maintenance_plan", master_maintenance_plan: @master_maintenance_plan

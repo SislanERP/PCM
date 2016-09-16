@@ -1,0 +1,26 @@
+var notification_options = {
+  "closeButton": true,
+  "debug": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "onclick": null,
+  "showDuration": "400",
+  "hideDuration": "1000",
+  "timeOut": "7000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
+var sweet_alert_warning = {
+  title: "<%= I18n.t('are_you_sure') %>",
+  text: "<%= I18n.t('you_can_not_be_recovered_this_record') %>",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#0e9aef",
+  confirmButtonText: "<%= I18n.t('yes_delete_it') %>",
+  cancelButtonText: "<%= I18n.t('cancel') %>",
+  closeOnConfirm: true
+}

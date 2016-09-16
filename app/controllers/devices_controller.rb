@@ -4,7 +4,7 @@ class DevicesController < ApplicationController
   # before_action :set_device, only: [:show]
 
   def index
-    @devices = Device.devices_by_company(params[:company_id])
+    @devices = Device.all_by_company(params[:company_id])
   end
 
   def show
