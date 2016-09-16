@@ -1,13 +1,17 @@
 <tr id='<%= "device_type-#{device_type.id}" %>'>
-  <td>
+  <td id="name">
     <strong>
       <a href='<%= "#{company_device_types_path(@company)}?device_type_id=#{device_type.id}" %>'><%= device_type.name %></a>
     </strong>
   </td>
   <td>
-    <%= link_to edit_company_device_type_path(@company, device_type), class: "btn btn-default btn-md" do %>
-      <i class="fa fa-edit"></i>
-    <% end %>
+    <%= link_to(
+      "<i class='fa fa-edit'></i>".html_safe,
+      edit_company_device_type_path(@company, device_type),
+      class: "btn btn-default btn-md",
+      data: { disable_with: '...' },
+      remote: true
+    )%>
 
     <%= link_to company_device_type_path(@company, device_type), class: "btn btn-default btn-md delete-device-type", 'data-delete-device-type-url':company_device_type_path(@company, device_type) do %>
       <i class="fa fa-trash-o"></i>

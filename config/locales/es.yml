@@ -1,4 +1,7 @@
 es:
+  close: Cerrar
+  update: Actualizar
+  update_device_type: Actualizar Tipo de Equipo
   devices: Equipos
   devices_of: Equipos de
   devices_details: Detalle de Equipos
@@ -66,7 +69,7 @@ es:
   yes_delete_it: Si, estoy seguro
   cancel: Cancelar
   detail_of: Detalle de
-  cannot_delete_device_type_that_are_already_associated_devices: No se puede borrar un tipo de equipo que tenga asociado equipos
+  cannot_delete_device_type_that_are_already_associated_devices: No se puede borrar, tiene equipos asociados.
   email: Correo electrónico
   password: Contraseña
   activerecord:
