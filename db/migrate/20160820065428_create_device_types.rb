@@ -3,7 +3,6 @@ class CreateDeviceTypes < ActiveRecord::Migration
     create_table :device_types do |t|
       t.string :name
       t.string :brand_model
-      t.text :description
 
       t.timestamps null: false
     end

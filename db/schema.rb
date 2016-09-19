@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911230741) do
+ActiveRecord::Schema.define(version: 20160919085644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,10 +114,12 @@ ActiveRecord::Schema.define(version: 20160911230741) do
   create_table "device_types", force: :cascade do |t|
     t.string   "name"
     t.string   "brand_model"
-    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "company_id"
   end
+
+  add_index "device_types", ["company_id"], name: "index_device_types_on_company_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
     t.string   "serial_number"
@@ -356,6 +358,7 @@ ActiveRecord::Schema.define(version: 20160911230741) do
   add_foreign_key "device_supplies", "devices"
   add_foreign_key "device_supplies", "instrument_types"
   add_foreign_key "device_supplies", "supplies"
+  add_foreign_key "device_types", "companies"
   add_foreign_key "devices", "device_types"
   add_foreign_key "devices", "devices"
   add_foreign_key "devices", "providers"
