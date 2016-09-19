@@ -1,12 +1,13 @@
 class DeviceType < ActiveRecord::Base
   has_many :master_maintenance_plans
+  belongs_to :company
 
   has_many :devices
   has_one :system, through: :devices
   has_one :plant, through: :system
   has_one :branch, through: :plant
-  has_one :company, through: :branch
 
+  validates :company_id, presence: true
   before_destroy :check_for_devices
 
   def self.all_by_company(company_id)

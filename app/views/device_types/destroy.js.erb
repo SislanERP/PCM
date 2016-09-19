@@ -1,12 +1,14 @@
 if (<%= @device_type.errors.blank? %>) {
+  $('#table-devices-types').DataTable().ajax.reload(null, false);
+
   $(function () {
     toastr.options = notification_options
     toastr.success('Borrado satisfactorimente', " " )
   });
-  $("#device_type-<%= @device_type.id %>").fadeOut(200);
 } else {
   $(function () {
     toastr.options = notification_options
-    toastr.error('<%= @device_type.errors.get(:base)[0] %>', "Error" )
+    toastr.error('<%= @device_type.errors.get(:base) %>', "Error" )
   });
 }
+$('#detail').html("")

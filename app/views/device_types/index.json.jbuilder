@@ -1,1 +1,3 @@
-json.array! @device_types, partial: 'device_types/device_type', as: :device_type
+json.data do
+  json.array! @device_types, partial: 'device_types/device_type', as: :device_type
+end
