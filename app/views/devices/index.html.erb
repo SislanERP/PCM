@@ -113,14 +113,14 @@
           {extend: 'print',
           text: "<i class='fa fa-print'></i>",
           title: "<%= t('devices_of') + ' ' + @company.try(:company_name)%>",
-          customize: function (win){
-            $(win.document.body).addClass('white-bg');
-            $(win.document.body).css('font-size', '10px');
-
-            $(win.document.body).find('table')
-            .addClass('compact')
-            .css('font-size', 'inherit');
-            }
+          // customize: function (win){
+          //   $(win.document.body).addClass('white-bg');
+          //   $(win.document.body).css('font-size', '10px');
+          //
+          //   $(win.document.body).find('table')
+          //   .addClass('compact')
+          //   .css('font-size', 'inherit');
+          //   }
           }
         ]
       });

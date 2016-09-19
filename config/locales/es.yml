@@ -1,6 +1,7 @@
 es:
   close: Cerrar
   update: Actualizar
+  create_device_type: Crear Nuevo Tipo de Equipo 
   update_device_type: Actualizar Tipo de Equipo
   devices: Equipos
   devices_of: Equipos de
