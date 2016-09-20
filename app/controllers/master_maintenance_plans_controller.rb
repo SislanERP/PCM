@@ -13,7 +13,7 @@ class MasterMaintenancePlansController < ApplicationController
   # GET /master_maintenance_plans/1.json
   def show
     @master_maintenance_plan = MasterMaintenancePlan.find(params[:id])
-    @tasks = @master_maintenance_plan.tasks.includes(:task_type)
+    @tasks = @master_maintenance_plan.tasks_include_task_type
   end
 
   # GET /master_maintenance_plans/new

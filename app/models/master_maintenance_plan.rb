@@ -6,4 +6,8 @@ class MasterMaintenancePlan < ActiveRecord::Base
   def self.all_by_device_type(device_type)
     MasterMaintenancePlan.where(device_type: device_type)
   end
+
+  def tasks_include_task_type
+    tasks.includes(:task_type)
+  end
 end
