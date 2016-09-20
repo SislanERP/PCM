@@ -8,7 +8,7 @@ class DevicesController < ApplicationController
   end
 
   def show
-    @device = Device.includes(:device_supplies).find(params[:id])
+    @device = Device.find_include_device_supplies(params[:id])
 
     @system_devices = @device.other_devices_of_system
 
@@ -18,7 +18,6 @@ class DevicesController < ApplicationController
 
     @device_supplies_supplies = @device.supplies
 
-    # render :layout => "layout_show"
   end
 
   private

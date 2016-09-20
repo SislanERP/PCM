@@ -34,17 +34,16 @@ class Device < ActiveRecord::Base
     'Luz piloto': 4
   }
 
+  def self.find_include_device_supplies(device_id)
+    Device.includes(:device_supplies).find(device_id)
+  end
+
   def self.all_by_company(company_id)
     Device.joins(:company).where("companies.slug = ?", company_id)
   end
 
   def self.all_by_device_type(device_type)
     Device.where(device_type: device_type)
-  end
-
-  def instruments
-    device_supplies.
-    Device.joins(:company).where("companies.slug = ?", company_id)
   end
 
   def supplies
