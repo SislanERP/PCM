@@ -10,13 +10,13 @@ class DevicesController < ApplicationController
   def show
     @device = Device.includes(:device_supplies).find(params[:id])
 
-    @system_devices = @device.system.devices.where.not(id: @device.id)
+    @system_devices = @device.other_devices_of_system
 
-    @device_supplies_instrunents = @device.device_supplies.includes(:instrument_type, :supply).where.not(instrument_type_id: nil)
+    @device_supplies_instrunents = @device.instruments
 
-    @device_supplies_lubricants = @device.device_supplies.includes(:supply).where(lubrication: true)
+    @device_supplies_lubricants = @device.lubricants
 
-    @device_supplies_supplies = @device.device_supplies.includes(:supply).where(lubrication: false, instrument_type_id: nil)
+    @device_supplies_supplies = @device.supplies
 
     # render :layout => "layout_show"
   end

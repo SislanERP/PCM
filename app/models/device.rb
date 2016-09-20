@@ -47,6 +47,22 @@ class Device < ActiveRecord::Base
     Device.joins(:company).where("companies.slug = ?", company_id)
   end
 
+  def supplies
+    device_supplies.includes(:supply).where(lubrication: false, instrument_type_id: nil)
+  end
+
+  def lubricants
+    device_supplies.includes(:supply).where(lubrication: true)
+  end
+
+  def instruments
+    device_supplies.includes(:instrument_type, :supply).where.not(instrument_type_id: nil)
+  end
+
+  def other_devices_of_system
+    system.devices.where.not(id: id)
+  end
+
   def state
     "Activo"
   end
