@@ -8,7 +8,7 @@ class DevicesController < ApplicationController
   end
 
   def show
-    @device = Device.find_include_device_supplies(params[:id])
+    @device = Device.find(params[:id])
 
     @system_devices = @device.other_devices_of_system
 
