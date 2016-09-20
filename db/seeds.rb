@@ -1,4 +1,13 @@
 
+Task.destroy_all
+ActiveRecord::Base.connection.execute("ALTER SEQUENCE tasks_id_seq RESTART WITH 1")
+
+MasterMaintenancePlan.destroy_all
+ActiveRecord::Base.connection.execute("ALTER SEQUENCE master_maintenance_plans_id_seq RESTART WITH 1")
+
+TaskType.destroy_all
+ActiveRecord::Base.connection.execute("ALTER SEQUENCE task_types_id_seq RESTART WITH 1")
+
 DeviceSupply.destroy_all
 ActiveRecord::Base.connection.execute("ALTER SEQUENCE device_supplies_id_seq RESTART WITH 1")
 
@@ -403,15 +412,63 @@ device: landes_HPA01)
 landes_HMR15 = Device.create!(serial_number: 'H-MR-15', name: 'Moto  reductor  Cinta  Transportadora  Salida  de Sacos', brand_model: 'SIEMENS 112 M', admission_date: '12-10-2010', description: '', observation: '', potency: '8.2 KW', production_capacity: '1440', system: landes_LINEA_FINAL, device_type: landes_siemens_112_m, provider: landes_lureye,
 device: landes_HPA01)
 
-# landes_HPA01.devices = landes_HMT01
-# landes_HPA01.devices = landes_HTC03
-# landes_HPA01.devices = landes_HMR15
-# landes_HPA01.save!
+# Master Maintenance plans
+Mantencion_de_los_6_meses = MasterMaintenancePlan.create!(
+  lubrication: false,
+  subject: "Mantención de los 6 meses",
+  description: "Esta mantención debe realizarse cada 6 meses impostergablemente",
+  frecuency: 4320,
+  device_type: landes_abb_m3aa160l4
+)
+Lubricacion_semanal = MasterMaintenancePlan.create!(
+  lubrication: true,
+  subject: "Lubricación semanal",
+  description: "Esta mantención debe realizarse cada semana impostergablemente",
+  frecuency: 168,
+  device_type: landes_abb_m3aa160l4
+)
 
-# landes_HPA01.devices.build(device: landes_HMT01)
-# landes_HPA01.devices.build(device: landes_HTC03)
-# landes_HPA01.devices.build(device: landes_HMR15)
-# landes_HPA01.save!
+# Task Types
+mecanica = TaskType.create!(name: "Mecánica", icon: "fa fa-cog")
+electrica = TaskType.create!(name: "Eléctrica", icon: "fa fa-flash")
+instrumentacion = TaskType.create!(name: "Instrumentación", icon: "fa fa-dashboard")
+lubricacion = TaskType.create!(name: "Lubricación", icon: "fa fa-tint")
+
+# Task
+# Mantencion_de_los_6_meses
+Task.create!(
+  sequence: 1,
+  description: "desenergizar el equipo",
+  master_maintenance_plan: Mantencion_de_los_6_meses,
+  task_type: electrica
+)
+Task.create!(
+  sequence: 2,
+  description: "Retirar segundo protector",
+  master_maintenance_plan: Mantencion_de_los_6_meses,
+  task_type: mecanica
+)
+Task.create!(
+  sequence: 3,
+  description: "Retirar engranaje principal",
+  master_maintenance_plan: Mantencion_de_los_6_meses,
+  task_type: mecanica
+)
+Task.create!(
+  sequence: 4,
+  description: "Lubricar la camara del engranaje",
+  master_maintenance_plan: Mantencion_de_los_6_meses,
+  task_type: lubricacion
+)
+# Lubricacion_semanal
+Task.create!(
+  sequence: 1,
+  description: "Lubricar los engranajes expuestos",
+  master_maintenance_plan: Lubricacion_semanal,
+  task_type: lubricacion
+)
+
+
 
 #device.device_supplies.build(supply: supplies.sample, cuantity: i+1 )
 # Items
