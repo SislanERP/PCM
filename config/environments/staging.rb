@@ -76,4 +76,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Mailing
+  config.action_mailer.default_url_options = { :host => 'test.pcm.landes.cl' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+
+  ActionMailer::Base.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :authentication => :plain,
+    :domain => 'landes.cl',
+    :user_name => Rails.application.secrets[:mailing][:username],
+    :password => Rails.application.secrets[:mailing][:password]
+  }
 end

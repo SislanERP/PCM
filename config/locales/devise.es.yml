@@ -48,6 +48,7 @@ es:
         change_your_password: Cambie su contraseña
         confirm_new_password: Confirme la nueva contraseña
         new_password: Nueva contraseña
+        characters_minimum: caracteres mínimo
       new:
         forgot_your_password: "¿Ha olvidado su contraseña?"
         send_me_reset_password_instructions: Envíeme las instrucciones para resetear mi contraseña
