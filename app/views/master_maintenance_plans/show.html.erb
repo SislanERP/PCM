@@ -13,3 +13,105 @@
 
   </div>
 </div><!-- END BreadCrumb -->
+<div class="row">
+  <div class="col-lg-12">  <!-- Side Left -->
+    <div class="wrapper wrapper-content animated fadeInUp">
+      <div class="ibox">
+        <div class="ibox-content">
+          <div class="row"> <!-- title -->
+            <div class="col-lg-12">
+              <div class="m-b-md">
+                <%= link_to(
+                "<i class='fa fa-trash-o'></i>".html_safe,
+                company_device_type_master_maintenance_plan_path(
+                @company,
+                @master_maintenance_plan.device_type,
+                @master_maintenance_plan
+                ),
+                class: "btn btn-danger pull-right",
+                  remote: true
+                  )%>
+                  <%= link_to(
+                  "<i class='fa fa-edit'></i>  #{t('master_plan_edit')}".html_safe,
+                  edit_company_device_type_master_maintenance_plan_path(
+                  @company,
+                  @master_maintenance_plan.device_type,
+                  @master_maintenance_plan
+                  ),
+                  class: "btn btn-primary pull-right",
+                    remote: true
+                    )%>
+                    <h2><%= @master_maintenance_plan.subject %></h2>
+                  </div>
+                  <dl class="dl-horizontal">
+                    <dt><%= t('device_type') %>:</dt>
+                    <dd><span class="label label-primary"><%= @master_maintenance_plan.device_type.name %></span></dd>
+                  </dl>
+                </div>
+              </div> <!-- end title -->
+              <div class="row"> <!-- general data -->
+                <div class="ibox-title">
+                  <h4><%= t('general_data') %></h4>
+                </div>
+                <div class="ibox-content">
+                  <div class="row">
+                    <div class="col-lg-5">
+                      <dl class="dl-horizontal">
+                        <dt><%= t('lubrication') %>:</dt>
+                        <dd>
+                          <%= @master_maintenance_plan.lubrication ? t('yes') : t('no') %>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-lg-5">
+                      <dl class="dl-horizontal">
+                        <dt><%= t('frecuency') %>:</dt>
+                        <dd><%= "#{@master_maintenance_plan.frecuency} horas"%></dd>
+                      </dl>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <dl class="dl-horizontal">
+                        <dt><%= t('description') %>:</dt>
+                        <dd>
+                          <div class="well">
+                            <%= @master_maintenance_plan.description %>
+                          </div>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- end general data -->
+              <div class="row"> <!-- tasks -->
+                <div class="ibox-title">
+                  <h4><%= t('tasks') %></h4>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="ibox-content inspinia-timeline">
+                      <%= render 'task' %>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- end tasks -->
+            </div> <!-- end principal ibox content -->
+          </div> <!-- end principal ibox -->
+        </div> <!--class="wrapper wrapper-content animated fadeInUp" -->
+      </div>  <!-- end Side Left -->
+
+
+
+    <!-- <div class="col-lg-6">
+    <div class="wrapper wrapper-content animated fadeInUp">
+    <div class="ibox">
+    <div class="ibox-content">
+    <div class="row">
+    <div class="col-lg-12">
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>  -->

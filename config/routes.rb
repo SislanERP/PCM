@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :device_types do
       resources :master_maintenance_plans
     end
+    resources :master_maintenance_plans, only: [:index]
   end
 
 

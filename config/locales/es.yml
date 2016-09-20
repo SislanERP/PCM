@@ -1,4 +1,9 @@
 es:
+  tasks: Tareas
+  frecuency: Frecuencia
+  yes: si
+  no: no
+  master_plan_edit: Editar Plan Maestro
   close: Cerrar
   update: Actualizar
   create_device_type: Crear Nuevo Tipo de Equipo
