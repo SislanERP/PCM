@@ -1,4 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2><%= t('master_plan_details') %></h2>
+    <ol class="breadcrumb">
+      <%= render 'common/breadcrumb_home' %>
+      <%= render 'common/breadcrumb_device_type_index' %>
+      <li class="active">
+        <strong><%= t('master_plan_details') %></strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
 
-<%= link_to 'Edit', edit_master_maintenance_plan_path(@master_maintenance_plan) %> |
-<%= link_to 'Back', master_maintenance_plans_path %>
+  </div>
+</div><!-- END BreadCrumb -->

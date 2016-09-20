@@ -1,11 +1,12 @@
 es:
   close: Cerrar
   update: Actualizar
-  create_device_type: Crear Nuevo Tipo de Equipo 
+  create_device_type: Crear Nuevo Tipo de Equipo
   update_device_type: Actualizar Tipo de Equipo
   devices: Equipos
   devices_of: Equipos de
-  devices_details: Detalle de Equipos
+  devices_details: Detalles de Equipo
+  master_plan_details: Detalles de Plan Maestro
   devices_edit: Editar Equipo
   branch: Sucursal
   plant: Planta

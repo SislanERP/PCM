@@ -1,4 +1,6 @@
 class MasterMaintenancePlansController < ApplicationController
+  before_action :set_company
+  before_action :authenticate_user!
   before_action :set_master_maintenance_plan, only: [:show, :edit, :update, :destroy]
 
   # GET /master_maintenance_plans
@@ -69,6 +71,12 @@ class MasterMaintenancePlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def master_maintenance_plan_params
-      params.fetch(:master_maintenance_plan, {})
+      params.require(:master_maintenance_plan).permit(
+        :lubrication,
+        :subject,
+        :description,
+        :frecuency
+      )
+      # params.fetch(:master_maintenance_plan, {})
     end
 end
