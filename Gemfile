@@ -47,6 +47,8 @@ gem 'puma', '3.6.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # help to kill N+1 queries and unused eager loading
+  gem "bullet"
 end
 
 group :development do
