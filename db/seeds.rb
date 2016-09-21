@@ -50,6 +50,7 @@ ActiveRecord::Base.connection.execute("ALTER SEQUENCE roles_id_seq RESTART WITH 
 AdminUser.destroy_all
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
+test = User.new(email: "test@mail.com", name: "User Name", password: "123456")
 alex = User.new(email: "alex@landes.cl", name: "Alex Pacheco", password: "123456")
 victor = User.new(email: "victor@landes.cl", name: "Victor Soto", password: "123456")
 marcelo = User.new(email: "msoto@landes.cl", name: "Marcelo Soto", password: "123456")
@@ -63,6 +64,10 @@ landes = Company.new(rut: "92.387.000-8", company_name: "Soc. Pesquera Landes S.
 marazul = Company.new(rut: "87.987.760-8", company_name: "Soc. Pesquera Mar Azul S.A.", fantasy_name: "Mar Azul S.A.", address: "Av. lokai s/n, parque industrial, Talcahuano", email: "marzaul@marazul.cl", url: "www.marazul.cl", slug: "marazul")
 
 profish = Company.new(rut: "99.387.450-8", company_name: "Profish S.A.", fantasy_name: "Profish S.A.", address: "Av. Tajamar 183 of 702, Las Condes", email: "profish@landes.cl", url: "www.profish.cl", slug: "profish")
+
+CompanyUser.new(user: test, company: landes, role: administrador, position: "Beta tester").save!
+CompanyUser.new(user: test, company: profish, role: administrador, position: "Beta tester").save!
+CompanyUser.new(user: test, company: marazul, role: administrador, position: "Beta tester").save!
 
 CompanyUser.new(user: marcelo, company: landes, role: lector, position: "Jefe Mantención").save!
 CompanyUser.new(user: marcelo, company: marazul, role: administrador, position: "Jefe Mantención").save!
