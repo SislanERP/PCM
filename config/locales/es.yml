@@ -1,4 +1,7 @@
 es:
+  master_maintenance_plan: Plan Maestro de Mantención
+  devices_type: Tipos de Equipo
+  companies: Empresas
   tasks: Tareas
   frecuency: Frecuencia
   yes: si
@@ -46,6 +49,7 @@ es:
   supplies: Repuestos
   instruments: Instrumentos
   devices: Equipos
+  device: Equipo
   branch_name: Sucursal
   plant_name: Planta
   system_name: Sistema

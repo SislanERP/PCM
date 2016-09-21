@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PCM is a web application, for the full management of preventive and corrective maintenances equipment within an industrial plant">
   <%= favicon_link_tag 'favicon.png' %>
-  <title>PCM Software</title>
+  <title><%= yield(:title) %></title>
+  <!-- <title>PCM Software</title> -->
 
   <!-- Include style per-controller - vendor plugins -->
   <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
