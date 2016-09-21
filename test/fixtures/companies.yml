@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  rut: MyString
-  company_name: MyString
-  fantasy_name: MyString
-  address: MyString
-  email: MyString
-  url: MyString
+  rut: one
+  company_name: MyCompany
+  fantasy_name: MyfantasyName
+  address: MyAddress
+  email: algo@mail.com
+  url: http://www.mycompany.com
 
 two:
-  rut: MyString
-  company_name: MyString
-  fantasy_name: MyString
-  address: MyString
-  email: MyString
-  url: MyString
+  rut: two
+  company_name: MyCompanyTwo
+  fantasy_name: MyfantasyNameTwo
+  address: MyAddressTwo
+  email: algotow@mail.com
+  url: http://www.mycompanytwo.com
