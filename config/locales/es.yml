@@ -1,9 +1,13 @@
 es:
+  subject: Asunto
+  update_master_maintenance_plan: Editar Plan Maestro de Mantención
+  select_company: Seleccionar una empresa
+  select_company_text: Si la empresa que necesita no esta en el listado comuniquese con su administrador.
   master_maintenance_plan: Plan Maestro de Mantención
   devices_type: Tipos de Equipo
   companies: Empresas
   tasks: Tareas
-  frecuency: Frecuencia
+  frecuency: Frecuencia (horas)
   yes: si
   no: no
   master_plan_edit: Editar Plan Maestro

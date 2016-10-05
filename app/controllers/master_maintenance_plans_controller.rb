@@ -6,7 +6,7 @@ class MasterMaintenancePlansController < ApplicationController
   # GET /master_maintenance_plans
   # GET /master_maintenance_plans.json
   def index
-    @master_maintenance_plans = MasterMaintenancePlan.all
+    @master_maintenance_plans = MasterMaintenancePlan.all_by_company(params[:company_id])
   end
 
   # GET /master_maintenance_plans/1
@@ -46,11 +46,13 @@ class MasterMaintenancePlansController < ApplicationController
   def update
     respond_to do |format|
       if @master_maintenance_plan.update(master_maintenance_plan_params)
-        format.html { redirect_to @master_maintenance_plan, notice: 'Master maintenance plan was successfully updated.' }
+        # format.html { redirect_to @master_maintenance_plan, notice: 'Master maintenance plan was successfully updated.' }
         format.json { render :show, status: :ok, location: @master_maintenance_plan }
+        format.js
       else
-        format.html { render :edit }
+        # format.html { render :edit }
         format.json { render json: @master_maintenance_plan.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -60,7 +62,7 @@ class MasterMaintenancePlansController < ApplicationController
   def destroy
     @master_maintenance_plan.destroy
     respond_to do |format|
-      format.html { redirect_to master_maintenance_plans_url, notice: 'Master maintenance plan was successfully destroyed.' }
+      format.html { redirect_to company_device_types_path, notice: 'Master maintenance plan was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,7 @@ class MasterMaintenancePlansController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_master_maintenance_plan
       @master_maintenance_plan = MasterMaintenancePlan.find(params[:id])
+      @device_type = DeviceType.find(params[:device_type_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

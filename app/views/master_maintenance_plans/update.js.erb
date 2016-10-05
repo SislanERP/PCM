@@ -1,0 +1,10 @@
+$('#modal-form').modal("hide");
+$('#subject').html("<%= @master_maintenance_plan.subject %>");
+$('#lubrication').html("<%= @master_maintenance_plan.lubrication ? 'Si' : 'No' %>");
+$('#frecuency').html("<%= @master_maintenance_plan.frecuency%>");
+$('#description').html("<%= j @master_maintenance_plan.description %>");
+
+$(function () {
+  toastr.options = notification_options
+  toastr.success('Actualizado satisfactorimente', " " )
+});
