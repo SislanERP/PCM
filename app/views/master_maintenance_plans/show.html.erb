@@ -20,7 +20,7 @@
     <div class="wrapper wrapper-content animated fadeInUp">
       <div class="ibox">
         <div class="ibox-content">
-          <div class="row"> <!-- title -->
+          <div id="title" class="row"> <!-- title -->
             <div class="col-lg-12">
               <div class="m-b-md">
                 <%= link_to(
@@ -30,7 +30,8 @@
                     @master_maintenance_plan.device_type,
                     @master_maintenance_plan
                   ),
-                  method: :delete,
+                  remote: true,
+                  id: "delete-master-maintenance-plan",
                   class: "btn btn-danger pull-right"
                 )%>
                 <%= link_to(
@@ -41,7 +42,7 @@
                     @master_maintenance_plan
                   ),
                   class: "btn btn-primary pull-right",
-                    remote: true
+                  remote: true
                 )%>
                 <h2 id="subject"><%= @master_maintenance_plan.subject %></h2>
               </div>
@@ -121,3 +122,31 @@
 <!-- modal -->
 <%= render 'common/modal' %>
 <!-- end modal -->
+
+<% content_for :javascript do %>
+
+  <script type="text/javascript">
+
+    $(function() {
+      // Sweet Alert
+      $('#title').on("click", '#delete-master-maintenance-plan', function (event) {
+        event.preventDefault();
+        var link = $(this).context.pathname;
+
+        swal(
+          sweet_alert_warning,
+          function () {
+          var url = link;
+          $.ajax({
+            method: "DELETE",
+            dataType: "script",
+            url: url
+          });
+          swal("Deleted!", "Your imaginary file has been deleted.", "success");
+        }); // end swal
+      }); // end click delete-master-maintenance-plan
+    });
+
+  </script>
+
+<% end %>

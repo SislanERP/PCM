@@ -10,11 +10,17 @@ class DeviceTypesController < ApplicationController
     @device_type = DeviceType.find(params[:device_type_id]) if params[:device_type_id].present?
     @devices = Device.all_by_device_type(@device_type) if @device_type.present?
     @master_maintenance_plans = MasterMaintenancePlan.all_by_device_type(@device_type) if @device_type.present?
-    
-    respond_to do |format|
-      format.html
-      format.json
-      format.js
+    if @device_type.present?
+      respond_to do |format|
+        format.html
+        format.json
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html
+        format.json
+      end
     end
   end
 

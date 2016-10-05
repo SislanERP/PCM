@@ -60,10 +60,15 @@ class MasterMaintenancePlansController < ApplicationController
   # DELETE /master_maintenance_plans/1
   # DELETE /master_maintenance_plans/1.json
   def destroy
-    @master_maintenance_plan.destroy
     respond_to do |format|
-      format.html { redirect_to company_device_types_path, notice: 'Master maintenance plan was successfully destroyed.' }
-      format.json { head :no_content }
+      if @master_maintenance_plan.destroy
+        # format.html { redirect_to company_device_types_path, notice: 'Master maintenance plan was successfully destroyed.' }
+        # format.json { head :no_content }
+        # format.html { redirect_to company_device_types_url, turbolinks: false, flush: true, status: 303, :formats => [:html] }
+        format.js
+      else
+        format.js
+      end
     end
   end
 

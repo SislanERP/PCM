@@ -1,0 +1,14 @@
+if (<%= @master_maintenance_plan.errors.blank? %>) {
+  $(document).on('turbolinks:load', function () {
+    toastr.options = notification_options;
+    toastr.success('Borrado satisfactorimente', " " );
+    window.location.href='<%= "#{company_device_types_url}?device_type_id=#{@device_type.id}" %>';
+
+  });
+
+} else {
+  $(function () {
+    toastr.options = notification_options;
+    toastr.error('<%= @master_maintenance_plan.errors.get(:base) %>', "Error" );
+  });
+}
