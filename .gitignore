@@ -12,6 +12,8 @@
 !/log/.keep
 /tmp
 */.keep
+*/.DS_Store
+.DS_Store
 .byebug_history
 
 # Ignore Secret file.
