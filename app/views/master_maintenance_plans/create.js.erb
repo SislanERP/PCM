@@ -1,0 +1,10 @@
+$('#modal-form').modal("hide");
+
+$('#table-devices-types').DataTable().ajax.reload(null, false);
+$('#detail').html("")
+
+
+$(function () {
+  toastr.options = notification_options
+  toastr.success('Creado satisfactorimente', " " )
+});
