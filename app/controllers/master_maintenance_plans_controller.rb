@@ -69,7 +69,8 @@ class MasterMaintenancePlansController < ApplicationController
         # format.html { redirect_to company_device_types_path, notice: 'Master maintenance plan was successfully destroyed.' }
         # format.json { head :no_content }
         # format.html { redirect_to company_device_types_url, turbolinks: false, flush: true, status: 303, :formats => [:html] }
-        format.js
+        format.json { head :no_content }
+        format.js {render js:"window.location.href='#{company_device_types_url}'"}
       else
         format.js
       end
