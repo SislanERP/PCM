@@ -15,6 +15,7 @@ es:
   update: Actualizar
   create_device_type: Crear Nuevo Tipo de Equipo
   update_device_type: Actualizar Tipo de Equipo
+  create_master_plan: Crear Nuevo Plan Maestro
   devices: Equipos
   devices_of: Equipos de
   devices_details: Detalles de Equipo
@@ -79,6 +80,7 @@ es:
   device_type_new: Nuevo Tipo de Equipo
   devices_of_type: Equipos del Tipo
   master_plan_of_type: Planes Maestros del Tipo
+  master_plan_new: Nuevo Plan Maestro
   are_you_sure: ¿Estas seguro?
   you_can_not_be_recovered_this_record: No se podrá recuperar este registro!
   yes_delete_it: Si, estoy seguro
