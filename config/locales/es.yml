@@ -80,6 +80,7 @@ es:
   device_type_new: Nuevo Tipo de Equipo
   devices_of_type: Equipos del Tipo
   master_plan_of_type: Planes Maestros del Tipo
+  task_new: Nueva Tarea
   master_plan_new: Nuevo Plan Maestro
   are_you_sure: ¿Estas seguro?
   you_can_not_be_recovered_this_record: No se podrá recuperar este registro!

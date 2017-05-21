@@ -89,6 +89,12 @@
               </div> <!-- end general data -->
               <div class="row"> <!-- tasks -->
                 <div class="ibox-title">
+                  <%= link_to(
+                    "<i class='fa fa-plus-square'></i> #{t('task_new')}".html_safe,
+                    new_company_device_type_path(@company),
+                    class: "btn btn-primary pull-right",
+                    remote: true
+                  )%>
                   <h4><%= t('tasks') %></h4>
                 </div>
                 <div class="row">

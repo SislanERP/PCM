@@ -6,14 +6,30 @@
         <i class="<%= task.task_type.icon %>"></i>
         <%= task.sequence %>
       </div>
-      <div class="col-xs-9 content no-top-border">
+      <div class="col-xs-8 content no-top-border">
         <p class="m-b-xs">
           <strong>
             <%= task.description %>
           </strong>
         </p>
       </div>
+      <div class="col-xs-1 content no-top-border">
+        <%= link_to(
+          "<i class='fa fa-edit'></i>".html_safe,
+          new_company_device_type_path(@company),
+          class: "btn btn-default btn-md",
+          remote: true
+        )%>
+        <%= link_to(
+          "<i class='fa fa-trash-o'></i>".html_safe,
+          new_company_device_type_path(@company),
+          class: "btn btn-default btn-md",
+          remote: true
+        )%>
+      </div>
     </div>
   </div>
 
 <% end %>
+
+<!-- '<a href="'+data.edit_url+'" class="btn btn-default btn-md" data-remote="true" data-disable-with="..."><i class="fa fa-edit"></i></a>'+'<a href="'+data.destroy_url+'" id="delete-device-type" class="btn btn-default btn-md " data-delete-device-type-url="'+data.destroy_url+'"><i class="fa fa-trash-o"></i></a>' -->
