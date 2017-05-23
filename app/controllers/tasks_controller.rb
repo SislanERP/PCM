@@ -23,6 +23,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @task_types = TaskType.all
   end
 
   # POST /tasks
@@ -35,11 +36,11 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         @tasks = @master_maintenance_plan.tasks_include_task_type
-        # format.html { redirect_to @task, notice: 'Task was successfully created.' }
+
         format.json { render :show, status: :created, location: @task }
         format.js
       else
-        # format.html { render :new }
+
         format.json { render json: @task.errors, status: :unprocessable_entity }
         format.js
       end
@@ -51,11 +52,10 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
+        @tasks = @master_maintenance_plan.tasks_include_task_type
+        format.js
       else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

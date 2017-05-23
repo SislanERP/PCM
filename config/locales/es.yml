@@ -17,6 +17,7 @@ es:
   update: Actualizar
   create_device_type: Crear Nuevo Tipo de Equipo
   create_task: Crear Nueva Tarea
+  update_task: Actualizar Tarea
   update_device_type: Actualizar Tipo de Equipo
   create_master_plan: Crear Nuevo Plan Maestro
   devices: Equipos

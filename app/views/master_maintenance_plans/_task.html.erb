@@ -16,7 +16,11 @@
       <div class="col-xs-1 content no-top-border">
         <%= link_to(
           "<i class='fa fa-edit'></i>".html_safe,
-          new_company_device_type_path(@company),
+          edit_company_master_maintenance_plan_task_path(
+            @company,
+            task.master_maintenance_plan,
+            task
+          ),
           class: "btn btn-default btn-md",
           remote: true
         )%>
