@@ -34,7 +34,7 @@
           <h4><%= t('master_plan_of_type') %></h4>
         </div>
       </div>
-      <div class="ibox-content">
+      <div id="master_plan" class="ibox-content">
         <%= render(
         partial: 'master_maintenance_plans/other_master_maintenance_plans',
         locals: { master_maintenance_plans: @master_maintenance_plans}

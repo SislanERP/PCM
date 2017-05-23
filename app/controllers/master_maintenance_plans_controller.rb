@@ -30,11 +30,13 @@ class MasterMaintenancePlansController < ApplicationController
   # POST /master_maintenance_plans.json
   def create
     @master_maintenance_plan = MasterMaintenancePlan.new(master_maintenance_plan_params)
-    @master_maintenance_plan.device_type = DeviceType.find(params[:device_type_id])
+    @device_type = DeviceType.find(params[:device_type_id])
+    @master_maintenance_plan.device_type = @device_type
 
     respond_to do |format|
       if @master_maintenance_plan.save
-        # format.html { redirect_to @master_maintenance_plan, notice: 'Master maintenance plan was successfully created.' }
+        @master_maintenance_plans = MasterMaintenancePlan.all_by_device_type(@device_type) if @device_type.present?
+
         format.json { render :show, status: :created, location: @master_maintenance_plan }
         format.js
       else
