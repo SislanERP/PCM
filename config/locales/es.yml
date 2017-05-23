@@ -7,13 +7,16 @@ es:
   devices_type: Tipos de Equipo
   companies: Empresas
   tasks: Tareas
+  type_task: Tipo de Tarea
   frecuency: Frecuencia (horas)
+  sequence: Orden
   yes: si
   no: no
   master_plan_edit: Editar Plan Maestro
   close: Cerrar
   update: Actualizar
   create_device_type: Crear Nuevo Tipo de Equipo
+  create_task: Crear Nueva Tarea
   update_device_type: Actualizar Tipo de Equipo
   create_master_plan: Crear Nuevo Plan Maestro
   devices: Equipos
