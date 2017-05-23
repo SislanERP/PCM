@@ -135,6 +135,7 @@
 
     $(function() {
       // Sweet Alert
+      // click delete-master-maintenance-plan
       $('#title').on("click", '#delete-master-maintenance-plan', function (event) {
         event.preventDefault();
         var link = $(this).context.pathname;
@@ -151,6 +152,25 @@
           swal("Deleted!", "Your imaginary file has been deleted.", "success");
         }); // end swal
       }); // end click delete-master-maintenance-plan
+
+      // click delete-task
+      $('#tasks').on("click", '#delete-task', function (event) {
+        event.preventDefault();
+        var link = $(this).context.pathname;
+
+        swal(
+          sweet_alert_warning,
+          function () {
+          var url = link;
+          $.ajax({
+            method: "DELETE",
+            dataType: "script",
+            url: url
+          });
+          swal("Deleted!", "Your imaginary file has been deleted.", "success");
+        }); // end swal
+      }); // end click delete-task
+
     });
 
   </script>
