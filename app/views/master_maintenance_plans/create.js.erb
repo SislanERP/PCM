@@ -1,0 +1,21 @@
+$('#modal-form').modal("hide");
+
+if (<%= @master_maintenance_plan.errors.blank? %>) {
+
+  $(function () {
+    toastr.options = notification_options
+    toastr.success('Creado satisfactorimente', " " )
+  });
+
+  // $('#table-devices-types').DataTable().ajax.reload(null, false);
+  $('#master_plan').html("");
+
+  $('#master_plan').html("<%=j render :partial => 'master_maintenance_plans/other_master_maintenance_plans', :locals => { master_maintenance_plans: @master_maintenance_plans} %>");
+
+
+} else {
+  $(function () {
+    toastr.options = notification_options;
+    toastr.error('<%= @master_maintenance_plan.errors.get(:base) %>', "Error" );
+  });
+}

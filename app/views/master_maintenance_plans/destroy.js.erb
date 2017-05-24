@@ -1,9 +1,13 @@
-if (<%= @master_maintenance_plan.errors.blank? %>) {
-  $(document).on('turbolinks:load', function () {
-    toastr.options = notification_options;
-    toastr.success('Borrado satisfactorimente', " " );
-    window.location.href='<%= "#{company_device_types_url}?device_type_id=#{@device_type.id}" %>';
+// No se esta ejecutando este codigo por que hay una rediección en el Controller
 
+if (<%= @master_maintenance_plan.errors.blank? %>) {
+
+  Turbolinks.visit('<%= "#{company_device_types_url}" %>')
+  console.log('<%= "#{company_device_types_url}" %>')
+
+  $(function () {
+    toastr.options = notification_options
+    toastr.success('Borrado satisfactorimente', " " )
   });
 
 } else {

@@ -1,0 +1,36 @@
+<%= form_for([@company, @master_maintenance_plan, @task], remote: true, html: {class: "form"}) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label t('sequence') %>
+    <div class="row">
+      <div class="col-xs-3">
+        <%= f.number_field :sequence, id: "sequence", class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('description') %>
+    <%= f.text_area :description, id: "description", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('type_task') %>
+    <%= f.collection_select :task_type_id, @task_types, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.submit "data-disable-with": "...", class: "btn btn-primary pull-right"%>
+  </div>
+<% end %>

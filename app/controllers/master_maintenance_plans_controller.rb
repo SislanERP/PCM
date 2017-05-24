@@ -18,6 +18,7 @@ class MasterMaintenancePlansController < ApplicationController
 
   # GET /master_maintenance_plans/new
   def new
+    @device_type = DeviceType.find(params[:device_type_id])
     @master_maintenance_plan = MasterMaintenancePlan.new
   end
 
@@ -29,14 +30,19 @@ class MasterMaintenancePlansController < ApplicationController
   # POST /master_maintenance_plans.json
   def create
     @master_maintenance_plan = MasterMaintenancePlan.new(master_maintenance_plan_params)
+    @device_type = DeviceType.find(params[:device_type_id])
+    @master_maintenance_plan.device_type = @device_type
 
     respond_to do |format|
       if @master_maintenance_plan.save
-        format.html { redirect_to @master_maintenance_plan, notice: 'Master maintenance plan was successfully created.' }
+        @master_maintenance_plans = MasterMaintenancePlan.all_by_device_type(@device_type) if @device_type.present?
+
         format.json { render :show, status: :created, location: @master_maintenance_plan }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @master_maintenance_plan.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -65,7 +71,8 @@ class MasterMaintenancePlansController < ApplicationController
         # format.html { redirect_to company_device_types_path, notice: 'Master maintenance plan was successfully destroyed.' }
         # format.json { head :no_content }
         # format.html { redirect_to company_device_types_url, turbolinks: false, flush: true, status: 303, :formats => [:html] }
-        format.js
+        format.json { head :no_content }
+        format.js {render js:"window.location.href='#{company_device_types_url}'"}
       else
         format.js
       end

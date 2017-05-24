@@ -6,12 +6,35 @@
         <i class="<%= task.task_type.icon %>"></i>
         <%= task.sequence %>
       </div>
-      <div class="col-xs-9 content no-top-border">
+      <div class="col-xs-8 content no-top-border">
         <p class="m-b-xs">
           <strong>
             <%= task.description %>
           </strong>
         </p>
+      </div>
+      <div class="col-xs-1 content no-top-border">
+        <%= link_to(
+          "<i class='fa fa-edit'></i>".html_safe,
+          edit_company_master_maintenance_plan_task_path(
+            @company,
+            task.master_maintenance_plan,
+            task
+          ),
+          class: "btn btn-default btn-md",
+          remote: true
+        )%>
+        <%= link_to(
+          "<i class='fa fa-trash-o'></i>".html_safe,
+          company_master_maintenance_plan_task_path(
+            @company,
+            task.master_maintenance_plan,
+            task
+          ),
+          id: "delete-task",
+          class: "btn btn-default btn-md",
+          remote: true
+        )%>
       </div>
     </div>
   </div>

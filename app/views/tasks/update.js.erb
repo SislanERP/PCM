@@ -1,0 +1,22 @@
+$('#modal-form').modal("hide");
+
+if (<%= @task.errors.blank? %>) {
+
+  $(function () {
+    toastr.options = notification_options
+    toastr.success('Actualizado satisfactorimente', " " )
+  });
+
+  $('#tasks').html("");
+
+  $('#tasks').html("<%=j render :partial => 'master_maintenance_plans/task' %>");
+
+
+}else {
+
+  $(function () {
+    toastr.options = notification_options;
+    toastr.error('<%= @task.errors.get(:base) %>', "Error" );
+  });
+
+}
