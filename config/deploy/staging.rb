@@ -2,12 +2,15 @@ set :application             , 'pcmapp_staging'
 set :deploy_to               , "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # Default branch is :master
 #ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-set :branch, 'staging'
+set :branch, 'development'
 set :stage, :staging
 set :rails_env, :staging
 
 
-server '13.65.32.197', user: 'ubuntu', roles: %w{web app db}, primary: true
+server 'pcmsteging.southcentralus.cloudapp.azure.com',
+ user: 'ubuntu',
+ roles: %w{web app db},
+ primary: true
 
 # Don't change these unless you know what you're doing
 set :pty                     , true
