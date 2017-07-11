@@ -90,7 +90,7 @@ staging:
   encoding: unicode
   database: pcm_staging
   username: ubuntu
-  password: <%= Rails.application.secrets[:database][:password] %>
+  # password: <%= Rails.application.secrets[:database][:password] %>
   pool: 5
   # password: <%= ENV['PCM_DATABASE_PASSWORD'] %>
 
