@@ -96,9 +96,10 @@ staging:
 
 production:
   adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
   encoding: unicode
   database: pcm_production
-  username: ubuntu
+  #username: ubuntu
   # password: <%= Rails.application.secrets[:database][:password] %>
   pool: 5
   # password: <%= ENV['PCM_DATABASE_PASSWORD'] %>
