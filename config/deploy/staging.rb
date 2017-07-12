@@ -1,3 +1,4 @@
+set :user                    , 'ubuntu'
 set :application             , 'pcmapp_staging'
 set :deploy_to               , "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 # Default branch is :master
