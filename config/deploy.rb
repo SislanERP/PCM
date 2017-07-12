@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :user                    , 'deploy'
+set :user                    , 'root'
 set :application             , 'pcmapp'
 set :deploy_to               , "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :scm                     , :git
