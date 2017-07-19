@@ -89,7 +89,7 @@ Rails.application.configure do
     :port => 587,
     :authentication => :plain,
     :domain => 'landes.cl',
-    :user_name => 'username',
-    :password => 'password'
+    :user_name => Rails.application.secrets[:mailing][:username],
+    :password => Rails.application.secrets[:mailing][:password]
   }
 end
