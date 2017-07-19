@@ -1,4 +1,4 @@
-alex = User.new(email: "alex@landes.cl", name: "Alex Pacheco", password: "123456")
+alex = User.new(email: "alex@landes.cl", name: "Alex Pacheco", password: "654321")
 victor = User.new(email: "victor@landes.cl", name: "Victor Soto", password: "123456")
 marcelo = User.new(email: "msoto@landes.cl", name: "Marcelo Soto", password: "123456")
 
