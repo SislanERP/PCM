@@ -1,6 +1,7 @@
 es:
   devices:
     index:
+      device_new: Nuevo Equipo
       devices: Equipos
       branch_name: Sucursal
       plant_name: Planta
