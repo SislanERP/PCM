@@ -20,7 +20,27 @@ class DevicesController < ApplicationController
 
   end
 
+  def new
+    @device = Device.new
+  end
+
+  def create
+    @device = Device.new(device_params)
+
+    respond_to do |format|
+      if @device.save
+        format.json { render :show, status: :created, location: @device }
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @device.errors, status: :unprocessable_entity }
+        format.js
+      end
+    end
+  end
+
   private
+
   def set_device
     @device = Device.find(params[:id])
   end

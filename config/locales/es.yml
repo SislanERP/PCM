@@ -22,6 +22,7 @@ es:
   create_master_plan: Crear Nuevo Plan Maestro
   devices: Equipos
   device_new: Nuevo Equipo
+  create_device: Crear Equipo
   devices_of: Equipos de
   devices_details: Detalles de Equipo
   master_plan_details: Detalles de Plan Maestro
@@ -41,7 +42,8 @@ es:
   lubrication: Lubricación
   brand_model: Marca Modelo
   potency: Potencia
-  production_capacity: Capacidad de Prod
+  prod_capacity: Capacidad de Prod
+  production_capacity: Capacidad de Producción
   intake: Consumo
   estatus: Estado
   observation: Observación
