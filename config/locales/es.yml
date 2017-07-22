@@ -21,6 +21,7 @@ es:
   update_device_type: Actualizar Tipo de Equipo
   create_master_plan: Crear Nuevo Plan Maestro
   devices: Equipos
+  device_new: Nuevo Equipo
   devices_of: Equipos de
   devices_details: Detalles de Equipo
   master_plan_details: Detalles de Plan Maestro
