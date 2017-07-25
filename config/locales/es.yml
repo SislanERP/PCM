@@ -28,6 +28,7 @@ es:
   master_plan_details: Detalles de Plan Maestro
   devices_edit: Editar Equipo
   branch: Sucursal
+  branches: Sucursales
   plant: Planta
   system: Sistema
   device_type: Tipo de Equipo

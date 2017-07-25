@@ -12,6 +12,21 @@
   <% end %>
 
   <div class="form-group">
+    <%= f.label t('branch') %>
+    <%= f.collection_select @branch_id, @branches, :id, :name %>
+  </div>
+
+  <!-- <div class="form-group">
+    <%= f.label t('plant') %>
+    <%= f.collection_select :plant_id, @plants, :id, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('system') %>
+    <%= f.collection_select :system_id, @systems, :id, :name %>
+  </div> -->
+
+  <div class="form-group">
     <%= f.label t('name') %>
     <%= f.text_field :name, autofocus: true, id: "name", class: "form-control" %>
   </div>

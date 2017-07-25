@@ -22,6 +22,7 @@ class DevicesController < ApplicationController
 
   def new
     @device = Device.new
+    @branches = Branch.all_by_company(params[:company_id])
   end
 
   def create

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :master_maintenance_plans, only: [:index] do
       resources :tasks
     end
+    resources :branches, only: [:index]
   end
 
 
