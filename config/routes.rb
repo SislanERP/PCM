@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
 
   resources :companies, only: [:index] do
+    get "dashboards/index"
     resources :devices
     resources :device_types do
       resources :master_maintenance_plans

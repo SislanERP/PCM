@@ -34,20 +34,14 @@
           PCM
         </div>
       </li> <!-- End nav header -->
-      <!-- branches menu -->
-      <li class="<%= is_active_controller('branches') %>">
-        <a href="">
-          <i class="fa fa-building-o"></i> <span class="nav-label"><%= t('.branches') %></span>
-          <span class="fa arrow"></span>
-        </a>
-
-        <ul class="nav nav-second-level collapse <%= is_active_controller('branches') %>">
-          <li class="<%= is_active_controller('branches') %>">
-            <%= link_to t('.list_of_Branches'), company_branches_path %>
-          </li>
-        </ul>
+      <!-- Dashboard menu -->
+      <li class="<%= is_active_controller('dashboards') %>">
+        <%= link_to(
+          "<i class='fa fa-th-large'></i> <span class='nav-label'> Dashboard".html_safe,
+          company_dashboards_index_path
+        )%>
       </li>
-      <!-- end branches menu -->
+      <!-- end Dashboard menu -->
       <!-- devices menu -->
       <li class="<%= is_active_main_device %>">
         <a href="">
