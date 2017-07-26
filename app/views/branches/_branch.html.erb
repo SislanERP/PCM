@@ -1,15 +1,12 @@
 <% @branches.each do |branch| %>
   <div class="col-lg-6">
     <div class="contact-box center-version">
-      <a href="profile.html">
-          <img alt="image" class="img-circle" src="<%= image_path('sucursal-default.png') %>">
-          <h3 class="m-b-xs"><strong><%= branch.name %></strong></h3>
-          <!-- <div class="font-bold">Graphics designer</div> -->
-          <address class="m-t-md">
-              <!-- <strong>Twitter, Inc.</strong><br> -->
-              <%= branch.address %>
-              <!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
-          </address>
+      <a href='<%= "#{company_branches_path(branch.company)}?branch_id=#{branch.id}" %>' data-remote="true">
+        <img alt="image" class="img-circle" src="<%= image_path('sucursal-default.png') %>">
+        <h3 class="m-b-xs"><strong><%= branch.name %></strong></h3>
+        <address class="m-t-md">
+          <%= branch.address %>
+        </address>
       </a>
       <div class="contact-box-footer">
         <div class="m-t-xs btn-group">

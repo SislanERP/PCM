@@ -2,8 +2,11 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-9">
     <h2>Dashboard</h2>
-    <ol class="breadcrumb">
+    <ol id="breadcrumb" class="breadcrumb">
       <%= render 'common/breadcrumb_home' %>
+      <li id="branches">
+        <strong>Sucursales</strong>
+      </li>
     </ol>
   </div>
 </div><!-- END BreadCrumb -->
@@ -17,21 +20,37 @@
           <div class="col-lg-6">
             <div class="ibox-title">
               <div class="m-b-md">
-                <h4><%= t('branches') %></h4>
+                <h4 id="title1">Sucursales</h4>
               </div>
             </div>
-            <div class="ibox-content">
+            <div id="plants"  class="ibox-content">
               <div class="row">
                 <%= render 'branches/branch' %>
               </div> <!-- row -->
             </div> <!-- ibox-content -->
-          </div> <!-- col-lg-6 BANCHES-->
+          </div> <!-- col-lg-6 BRANCHES-->
 
-          <div id="detail" class="col-lg-6">
-          </div> <!-- col-lg-6 DETAIL-->
+          <div id="systems" class="col-lg-6">
+          </div> <!-- col-lg-6 SYSTEMS-->
 
         </div> <!-- row -->
       </div> <!-- ibox -->
     </div> <!-- wrapper wrapper-content animated fadeInRight -->
   </div> <!-- col-lg-12 -->
 </div> <!-- row -->
+
+<% content_for :javascript do %>
+
+  <script type="text/javascript">
+
+    $(function () {
+
+      $('.contact-box').each(function () {
+          animationHover(this, 'pulse');
+      });
+
+    });
+
+  </script>
+
+<% end %>

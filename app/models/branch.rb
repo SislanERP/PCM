@@ -3,6 +3,7 @@ class Branch < ActiveRecord::Base
   has_many :plants
 
   def self.all_by_company(company_id)
-    Branch.joins(:company).where("companies.slug = ?", company_id)
+    Branch.joins(:company).where("companies.slug = ?", company_id).includes(:company)
+
   end
 end
