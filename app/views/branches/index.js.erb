@@ -1,4 +1,5 @@
-$('#branches').html("Sucursales")
-$('#breadcrumb').append("<li ><strong> sucursal x </strong></li>")
+$('#branches').html("<a href='<%= company_dashboards_path %>'>Sucursales</a>")
+$('#breadcrumb').append("<li ><strong> <%= @branch.name %> </strong></li>")
 $('#title1').html("Plantas")
-$('#plants').html("")
+$('#plants').html("<table id='table-plants' class='table table-striped table-bordered table-hover' cellspacing='0' width='100%'><thead><tr><th>Nombre</th><th></th></tr></thead></table>")
+$('#table-plants').DataTable().ajax.reload(null, false);
