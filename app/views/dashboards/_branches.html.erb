@@ -1,0 +1,23 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <% @branches.each do |branch| %>
+      <div class="col-lg-3">
+        <div class="contact-box center-version">
+          <a href='<%= "#{company_dashboards_path(branch.company)}?branch_id=#{branch.id}" %>' data-remote="true">
+            <img alt="image" class="img-circle" src="<%= image_path('sucursal-default.png') %>">
+            <h3 class="m-b-xs"><strong><%= branch.name %></strong></h3>
+            <address class="m-t-md">
+              <%= branch.address %>
+            </address>
+          </a>
+          <div class="contact-box-footer">
+            <div class="m-t-xs btn-group">
+              <a class="btn btn-xs btn-white"><i class="fa fa-edit"></i> Editar </a>
+              <a class="btn btn-xs btn-white"><i class="fa fa-trash-o"></i> Eliminar </a>
+            </div>
+          </div> <!-- contact-box-footer -->
+        </div> <!-- contact-box center-version -->
+      </div> <!-- col-lg-3 -->
+    <% end %>
+  </div>
+</div>

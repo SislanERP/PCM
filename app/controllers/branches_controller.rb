@@ -5,22 +5,7 @@ class BranchesController < ApplicationController
 
   def index
     @branches = Branch.all_by_company(params[:company_id])
-    @branch = Branch.find(params[:branch_id]) if params[:branch_id].present?
-
-    if @branch.present?
-      respond_to do |format|
-        format.html
-        format.json
-        format.js
-      end
-    else
-      respond_to do |format|
-        format.html
-        format.json
-      end
-    end
   end
-
 
   private
 
