@@ -45,7 +45,7 @@
       <!-- master menu -->
       <li class="<%= is_active_master %>">
         <a href="">
-          <i class="fa fa-gears"></i> <span class="nav-label">Maestros</span>
+          <i class="fa fa-floppy-o"></i> <span class="nav-label">Maestros</span>
           <span class="fa arrow"></span>
         </a>
         <!-- Second Level of Master -->
@@ -66,7 +66,7 @@
         <!-- Second Level of Devices -->
         <ul class="nav nav-second-level collapse <%= is_active_controller('devices') %>">
           <!-- list_of_devices -->
-          <li class="<%= is_active_controller('devices') %>">
+          <li class="<%= is_active_action('devices', 'index') %>">
             <%= link_to "Todos los equipos", company_devices_path %>
           </li>
         </ul>

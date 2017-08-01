@@ -35,7 +35,7 @@
           <div class="row"> <!-- Father Device -->
             <div class="col-lg-12">
               <dl class="dl-horizontal">
-                <dt><%= t('father_device') %>:</dt>
+                <dt>Equipo Principal:</dt>
                 <dd>
                   <strong>
                     <%= link_to "#{@device.device.name}".html_safe, [@company, @device.device] %>
@@ -302,7 +302,7 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <!-- Children Devices -->
-                    <h4><%= t('son_devices') %></h4>
+                    <h4>Sub Equipos</h4>
                     <%= render(
                     partial: 'other_devices',
                     locals: { devices: @device.devices}
