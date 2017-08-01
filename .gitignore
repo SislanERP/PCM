@@ -15,6 +15,7 @@
 */.DS_Store
 .DS_Store
 .byebug_history
+*/.byebug_history
 
 # Ignore Secret file.
 config/secrets.yml

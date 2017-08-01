@@ -1,0 +1,18 @@
+<% content_for :title, "PCM - #{t('branches')}" %>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-9">
+    <h2><%= t('branches') %></h2>
+    <ol class="breadcrumb">
+      <%= render 'common/breadcrumb_home' %>
+      <li class="active">
+        <strong><%= t('branches') %></strong>
+      </li>
+    </ol>
+  </div>
+</div><!-- END BreadCrumb -->
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <%= render 'branch' %>
+  </div> <!-- row -->
+</div> <!-- wrapper wrapper-content animated fadeInRight -->

@@ -8,10 +8,8 @@ module ApplicationHelper
     (is_active_controller(controller_name) and params[:action] == action_name) ? "active" : nil
   end
 
-  def is_active_main_device()
+  def is_active_master()
     case
-    when params[:controller] == 'devices'
-      "active"
     when params[:controller] == 'device_types'
       "active"
     when ((params[:controller] == 'master_maintenance_plans') && (params[:action] == 'show'))

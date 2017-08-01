@@ -1,0 +1,72 @@
+<%= form_for([@company, @device], remote: true, html: {class: "form"}) do |f| %>
+  <% if @device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+      <ul>
+      <% @device.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label t('branch') %>
+    <%= f.collection_select @branch_id, @branches, :id, :name %>
+  </div>
+
+  <!-- <div class="form-group">
+    <%= f.label t('plant') %>
+    <%= f.collection_select :plant_id, @plants, :id, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('system') %>
+    <%= f.collection_select :system_id, @systems, :id, :name %>
+  </div> -->
+
+  <div class="form-group">
+    <%= f.label t('name') %>
+    <%= f.text_field :name, autofocus: true, id: "name", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('serial_number') %>
+    <%= f.text_field :serial_number, autofocus: true, id: "serial_number", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('brand_model') %>
+    <%= f.text_field :brand_model, autofocus: true, id: "brand_model", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('potency') %>
+    <%= f.text_field :potency, autofocus: true, id: "potency", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('production_capacity') %>
+    <%= f.text_field :production_capacity, autofocus: true, id: "production_capacity", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('intake') %>
+    <%= f.text_field :intake, autofocus: true, id: "intake", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('description') %>
+    <%= f.text_area :description, id: "description", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t('observation') %>
+    <%= f.text_area :observation, id: "observation", class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.submit "data-disable-with": "...", class: "btn btn-primary pull-right"%>
+  </div>
+<% end %>

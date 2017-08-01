@@ -1,0 +1,116 @@
+<% if (@branch.present?)  %>
+
+  <% if (@plant.present?)  %>
+
+    $('#branch').html("<%= @branch.name %>")
+    $('#plant').html("<strong> <%= @plant.name %> </strong>")
+    $('#systems').html("<%= j render 'systems' %>")
+
+    // DataTable
+    var dta2 = $('#table-systems').DataTable({
+      pageLength: 10,
+      responsive: true,
+      "language": lang_data_tables,
+
+      "ajax": {
+        "url": "<%="#{company_dashboards_path}.json?branch_id=#{@branch.id}&plant_id=#{@plant.id}"%>"
+      },
+
+      "columns": [
+        {
+          data: "link",
+          render: function(data, type, row) {
+            return '<strong><a href="'+"<%="#{company_dashboards_path}?branch_id=#{@branch.id}&plant_id=#{@plant.id}&system_id="%>"+data.id+'" data-remote="true">' +data.name+'</a></strong>';
+          }
+        },
+        {
+          data: "action",
+          render: function(data, type, row) {
+            return '<a href="'+data.edit_url+'" class="btn btn-default btn-md" data-remote="true" data-disable-with="..."><i class="fa fa-edit"></i></a>'+'<a href="'+data.destroy_url+'" id="delete-plant" class="btn btn-default btn-md " data-delete-plant-url="'+data.destroy_url+'"><i class="fa fa-trash-o"></i></a>';
+          }
+        }
+      ],
+
+      dom: '<"html5buttons"B>lTfgitp',
+
+      buttons: [
+        {extend: 'csv',
+        text: "<i class='fa fa-file-text-o'></i> CSV"
+        },
+
+        {extend: 'excel',
+        text: "<i class='fa fa-file-excel-o'></i> Excel",
+        title: "<%= "Sistemas  #{@company.try(:company_name)}"%>"
+        },
+
+        {extend: 'pdf',
+        text: "<i class='fa fa-file-pdf-o'></i> PDF",
+        title: "<%= "Sistemas  #{@company.try(:company_name)}"%>",
+        orientation: 'portrait'
+        },
+
+        {extend: 'print',
+        text: "<i class='fa fa-print'></i>",
+        title: "<%= "Sistemas  #{@company.try(:company_name)}"%>",
+        }
+      ]
+    }); // end datatables
+
+  <% else %>
+
+    $('#branches').html("<a href='<%= company_dashboards_path %>'>Sucursales</a>")
+    $('#breadcrumb').append("<li id='branch'><strong> <%= @branch.name %> </strong></li><li id=plant></li>")
+    $('#content').html("<%= j render 'plants' %>")
+
+    // DataTable
+    var dta = $('#table-plants').DataTable({
+      pageLength: 10,
+      responsive: true,
+      "language": lang_data_tables,
+
+      "ajax": {
+        "url": "<%="#{company_dashboards_path}.json?branch_id=#{@branch.id}"%>"
+      },
+
+      "columns": [
+        {
+          data: "link",
+          render: function(data, type, row) {
+            return '<strong><a href="'+"<%="#{company_dashboards_path}?branch_id=#{@branch.id}&plant_id="%>"+data.id+'" data-remote="true">' +data.name+'</a></strong>';
+          }
+        },
+        {
+          data: "action",
+          render: function(data, type, row) {
+            return '<a href="'+data.edit_url+'" class="btn btn-default btn-md" data-remote="true" data-disable-with="..."><i class="fa fa-edit"></i></a>'+'<a href="'+data.destroy_url+'" id="delete-plant" class="btn btn-default btn-md " data-delete-plant-url="'+data.destroy_url+'"><i class="fa fa-trash-o"></i></a>';
+          }
+        }
+      ],
+
+      dom: '<"html5buttons"B>lTfgitp',
+
+      buttons: [
+        {extend: 'csv',
+        text: "<i class='fa fa-file-text-o'></i> CSV"
+        },
+
+        {extend: 'excel',
+        text: "<i class='fa fa-file-excel-o'></i> Excel",
+        title: "<%= "Plantas  #{@company.try(:company_name)}"%>"
+        },
+
+        {extend: 'pdf',
+        text: "<i class='fa fa-file-pdf-o'></i> PDF",
+        title: "<%= "Plantas  #{@company.try(:company_name)}"%>",
+        orientation: 'portrait'
+        },
+
+        {extend: 'print',
+        text: "<i class='fa fa-print'></i>",
+        title: "<%= "Plantas  #{@company.try(:company_name)}"%>",
+        }
+      ]
+    }); // end datatables
+
+  <% end %>
+<% end %>

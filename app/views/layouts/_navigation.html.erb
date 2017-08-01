@@ -34,27 +34,46 @@
           PCM
         </div>
       </li> <!-- End nav header -->
+      <!-- Dashboard menu -->
+      <li class="<%= is_active_controller('dashboards') %>">
+        <%= link_to(
+          "<i class='fa fa-th-large'></i> <span class='nav-label'> Dashboard".html_safe,
+          company_dashboards_path
+        )%>
+      </li>
+      <!-- end Dashboard menu -->
+      <!-- master menu -->
+      <li class="<%= is_active_master %>">
+        <a href="">
+          <i class="fa fa-floppy-o"></i> <span class="nav-label">Maestros</span>
+          <span class="fa arrow"></span>
+        </a>
+        <!-- Second Level of Master -->
+        <ul class="nav nav-second-level collapse <%= is_active_master %>">
+          <!-- list of type of devices -->
+          <li class="<%= is_active_master %>">
+            <%= link_to t('type_of_devices'), company_device_types_path %>
+          </li>
+        </ul>
+      </li>
+      <!-- end Master menu -->
       <!-- devices menu -->
-      <li class="<%= is_active_main_device %>">
+      <li class="<%= is_active_controller('devices') %>">
         <a href="">
           <i class="fa fa-gears"></i> <span class="nav-label"><%= t('.devices') %></span>
           <span class="fa arrow"></span>
         </a>
         <!-- Second Level of Devices -->
-        <ul class="nav nav-second-level collapse <%= is_active_main_device %>">
+        <ul class="nav nav-second-level collapse <%= is_active_controller('devices') %>">
           <!-- list_of_devices -->
-          <li class="<%= is_active_main_device_sub_device %>">
-            <%= link_to t('.list_of_devices'), company_devices_path %>
-          </li>
-          <!-- list of type of devices -->
-          <li class="<%= is_active_main_device_sub_type_device %>">
-            <%= link_to t('type_of_devices'), company_device_types_path %>
+          <li class="<%= is_active_action('devices', 'index') %>">
+            <%= link_to "Todos los equipos", company_devices_path %>
           </li>
         </ul>
       </li>
       <!-- end devices menu -->
       <!-- Maintenances menu -->
-      <li class="<%= is_active_controller('maintenances') %>">
+      <!-- <li class="<%= is_active_controller('maintenances') %>">
         <a href="">
           <i class="fa fa-edit"></i> <span class="nav-label"><%= t('.maintenances') %></span>
           <span class="fa arrow"></span>
@@ -68,7 +87,7 @@
             <%= link_to t('.list_of_maintenances'), company_devices_path %>
           </li>
         </ul>
-      </li>
+      </li> -->
       <!-- end maitenances menu -->
     </ul>
   </div>
