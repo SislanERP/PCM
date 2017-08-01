@@ -1,0 +1,32 @@
+<% content_for :title, "PCM - Dashboard" %>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-9">
+    <h2>Dashboard</h2>
+    <ol id="breadcrumb" class="breadcrumb">
+      <%= render 'common/breadcrumb_home' %>
+      <li id="branches">
+        <strong>Sucursales</strong>
+      </li>
+    </ol>
+  </div>
+</div><!-- END BreadCrumb -->
+
+<div id="content">
+  <%= render 'branches' %>
+</div>
+
+<% content_for :javascript do %>
+
+  <script type="text/javascript">
+
+    $(function () {
+
+      $('.contact-box').each(function () {
+          animationHover(this, 'pulse');
+      });
+
+    });
+
+  </script>
+
+<% end %>

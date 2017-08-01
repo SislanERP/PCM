@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
 
   resources :companies, only: [:index] do
+    resources :dashboards, only: [:index]
     resources :devices
     resources :device_types do
       resources :master_maintenance_plans
@@ -17,8 +18,12 @@ Rails.application.routes.draw do
     resources :master_maintenance_plans, only: [:index] do
       resources :tasks
     end
+    resources :branches, only: [:index] do
+      resources :plants, only: [:index]
+    end
   end
 
+end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -68,4 +73,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
